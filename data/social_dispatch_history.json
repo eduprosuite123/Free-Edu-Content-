@@ -33,5 +33,12 @@
     "platform": "YouTube",
     "type": "Long Video",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-24T19:58:03.032262+00:00",
+    "slot_id": "bluesky_2",
+    "platform": "Bluesky",
+    "type": "Resource Link",
+    "mode": "live"
   }
 ]
