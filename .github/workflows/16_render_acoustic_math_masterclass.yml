@@ -46,9 +46,10 @@ jobs:
       - name: Checkout Codebase
         uses: actions/checkout@v4
 
-      - name: Verify Pre-installed FFmpeg
-        run: |
-          ffmpeg -version
+      - name: Setup Fast Static FFmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          ffmpeg-version: 'release'
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
