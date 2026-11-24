@@ -6,6 +6,10 @@ on:
     - cron: '0 18 * * *'
   workflow_dispatch:
     inputs:
+      equation_index:
+        description: 'Equation index to render (0 = y=x^x, 1 = sin(x^2), leave empty for rotation)'
+        required: false
+        default: '0'
       upload_to_youtube:
         description: 'Upload directly to YouTube Shorts via Data API v3'
         required: true
@@ -51,8 +55,13 @@ jobs:
 
       - name: Render 1080x1920 Acoustic Math Short Video
         run: |
-          echo "[+] Rendering 9:16 Vertical Short Video (Acoustic Mathematics)..."
-          python scripts/render_acoustic_math_short.py
+          echo "[+] Rendering 9:16 Vertical Short Video with Verified Pedagogy & Cloned Voice..."
+          IDX="${{ github.event.inputs.equation_index }}"
+          if [ -n "$IDX" ]; then
+            python scripts/render_acoustic_math_short.py --index "$IDX"
+          else
+            python scripts/render_acoustic_math_short.py
+          fi
 
       - name: Upload Short MP4 as Workflow Artifact
         uses: actions/upload-artifact@v4
