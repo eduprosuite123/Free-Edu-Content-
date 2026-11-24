@@ -3,7 +3,7 @@
 Official YouTube Data API v3 Uploader for Acoustic Mathematics
 ==============================================================
 Publishes 1080p Masterclass videos with 100% SEO-optimized Metadata
-(Title, Rich Chapter Timestamps, High-Intent Search Tags, Category 27).
+(Title, Dynamic Chapter Timestamps, High-Intent Search Tags, Category 27).
 """
 
 import os
@@ -23,31 +23,9 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT_DIR / "output"
+DATA_DIR = ROOT_DIR / "data"
 
-# 100% SEO-Optimized Metadata Suite
 TITLE = "What 10 Iconic Math Equations Actually Sound Like (Desmos Sonification)"
-
-DESCRIPTION = """Have you ever wondered what mathematical equations sound like when converted into acoustic sound? In this visual and acoustic mathematics masterclass, we sonify iconic equations—from the pure harmonic baseline to the cursed exponential x^x curve and the million-dollar non-trivial zeros of the Riemann Zeta hypothesis.
-
-Using the sonification standard utilized by Desmos and screen-reader accessibility software for visually impaired and blind mathematicians, each equation's x-coordinate glides across time and stereo space (Left to Right ear), while vertical y-values map continuously to audio pitch frequencies.
-
-🎧 Headphone Recommended for Full Stereo Audio Panning.
-
-⏱️ Chapter Timestamps:
-0:00 - Introduction to Acoustic Mathematics & Audio Trace
-0:15 - 1. Pure Harmonic Oscillation: y = sin(x)
-1:27 - 2. The Cursed Curve: y = x^x
-2:45 - 3. The Quadratic Laser Chirp: y = sin(x^2)
-4:05 - 4. The Infinite Asymptote Barrier: y = tan(x)
-5:25 - 5. The Cardinal Sinc Wave: y = sin(x)/x
-6:45 - 6. Topologist's Infinite Sine: y = sin(1/x)
-8:05 - 7. The Riemann Hypothesis Critical Line Zeros
-9:30 - Conclusion & How Blind Students Hear Mathematics
-
-👉 Download Formula Sheets & Interactive Desmos Guides:
-https://eduprosuite.pro/
-
-#Mathematics #Desmos #AcousticMath #Calculus #STEM #Science #MathVisualizer #AudioTrace"""
 
 TAGS = [
     "math sounds",
@@ -64,8 +42,55 @@ TAGS = [
     "stem education",
     "calculus animations",
     "frequency modulation math",
-    "educational documentary"
+    "educational documentary",
+    "math songs",
+    "desmos cursed"
 ]
+
+def build_dynamic_description() -> str:
+    chapters_file = DATA_DIR / "masterclass_chapters.json"
+    chapters_lines = []
+    
+    if chapters_file.exists():
+        try:
+            with open(chapters_file, "r", encoding="utf-8") as f:
+                chapters = json.load(f)
+                for ch in chapters:
+                    chapters_lines.append(f"{ch['timestamp']} - {ch['title']}")
+        except Exception as e:
+            print(f"[!] Warning reading chapters: {e}")
+            
+    if not chapters_lines:
+        chapters_lines = [
+            "00:00 - 1. Pure Harmonic Oscillation: y = sin(x)",
+            "00:50 - 2. The Cursed Curve: y = x^x",
+            "01:40 - 3. The Quadratic Laser Chirp: y = sin(x^2)",
+            "02:30 - 4. The Infinite Barrier: y = tan(x)",
+            "03:20 - 5. The Cardinal Sinc Wave: y = sin(x)/x",
+            "04:10 - 6. Topologist's Infinite Sine: y = sin(1/x)",
+            "05:00 - 7. Riemann Zeta Critical Zeros: Re(s) = 1/2",
+            "05:50 - 8. The Razor Curve: y = tan(sin(x))",
+            "06:40 - 9. The Golden Logarithmic Spiral: r = e^(0.15*theta)",
+            "07:30 - 10. Fourier Square Wave Synthesis (7 Harmonics)",
+            "08:20 - Conclusion & Desmos Accessibility for Blind Mathematicians"
+        ]
+        
+    chapters_block = "\n".join(chapters_lines)
+    
+    desc = f"""Have you ever wondered what mathematical equations sound like when converted into acoustic sound? In this visual and acoustic mathematics masterclass, we sonify 10 iconic equations—from the pure harmonic baseline to the cursed exponential x^x curve and the million-dollar non-trivial zeros of the Riemann Zeta hypothesis.
+
+Using the sonification standard utilized by Desmos and screen-reader accessibility software for visually impaired and blind mathematicians, each equation's x-coordinate glides across time and stereo space (Left to Right ear), while vertical y-values map continuously to audio pitch frequencies.
+
+🎧 Headphone Recommended for Full Stereo Audio Panning.
+
+⏱️ Chapter Timestamps:
+{chapters_block}
+
+👉 Download Formula Sheets & Interactive Desmos Guides:
+https://eduprosuite.pro/
+
+#Mathematics #Desmos #AcousticMath #Calculus #STEM #Science #MathVisualizer #AudioTrace #MathSounds"""
+    return desc
 
 def get_valid_access_token():
     env_secret = os.environ.get("YOUTUBE_CLIENT_SECRETS")
@@ -111,13 +136,14 @@ def get_valid_access_token():
 
 def upload_video(privacy_status="public"):
     # Find generated MP4 in output/
-    video_files = list(OUTPUT_DIR.glob("*.mp4"))
+    video_files = sorted(list(OUTPUT_DIR.glob("*.mp4")), key=lambda p: p.stat().st_mtime, reverse=True)
     if not video_files:
         print(f"[ERROR] No rendered video found in {OUTPUT_DIR}")
         sys.exit(1)
         
     target_video = video_files[0]
     file_size = target_video.stat().st_size
+    description = build_dynamic_description()
     
     print("=" * 80)
     print("PUBLISHING ACOUSTIC MATHEMATICS MASTERCLASS TO YOUTUBE")
@@ -142,7 +168,7 @@ def upload_video(privacy_status="public"):
     body = {
         "snippet": {
             "title": TITLE,
-            "description": DESCRIPTION,
+            "description": description,
             "tags": TAGS,
             "categoryId": "27"  # Education
         },
@@ -174,7 +200,7 @@ def upload_video(privacy_status="public"):
         "Content-Length": str(file_size)
     }
     
-    upload_resp = requests.put(upload_url, data=video_data, headers=upload_headers, timeout=120)
+    upload_resp = requests.put(upload_url, data=video_data, headers=upload_headers, timeout=180)
     if upload_resp.status_code in [200, 201]:
         res_data = upload_resp.json()
         video_id = res_data.get("id")

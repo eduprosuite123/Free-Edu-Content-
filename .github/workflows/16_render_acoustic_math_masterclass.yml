@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       render_mode:
-        description: 'Rendering Mode (test = 2 equations, full = 10 equations ~10 min)'
+        description: 'Rendering Mode (full = 10 equations ~8.5 min, test = 2 equations ~1.7 min)'
         required: true
-        default: 'test'
+        default: 'full'
         type: choice
         options:
-          - 'test'
           - 'full'
+          - 'test'
       fps:
         description: 'Frames per second (24 = fast render, 30 = ultra smooth)'
         required: true
