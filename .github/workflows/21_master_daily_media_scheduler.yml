@@ -1,0 +1,117 @@
+name: "21 - Master Daily 4-Slot Media Scheduler (3 Reels + 1 Long)"
+
+on:
+  schedule:
+    # Slot 1: 03:47 UTC = 09:17 AM IST / 11:17 PM EST (Morning Reel #1)
+    - cron: '47 3 * * *'
+    # Slot 2: 09:13 UTC = 02:43 PM IST / 04:43 AM EST (Afternoon Reel #2)
+    - cron: '13 9 * * *'
+    # Slot 3: 13:03 UTC = 06:33 PM IST / 08:33 AM EST (Peak Evening 1 Long-Form Masterclass)
+    - cron: '3 13 * * *'
+    # Slot 4: 16:07 UTC = 09:37 PM IST / 11:07 AM EST (Night Reel #3)
+    - cron: '7 16 * * *'
+
+  workflow_dispatch:
+    inputs:
+      target_slot:
+        description: "Target slot to execute (or auto based on UTC hour)"
+        required: true
+        default: "auto"
+        type: choice
+        options:
+          - "auto"
+          - "slot1_morning_reel"
+          - "slot2_afternoon_reel"
+          - "slot3_evening_long"
+          - "slot4_night_reel"
+      privacy_status:
+        description: "YouTube Privacy Status"
+        required: true
+        default: "public"
+        type: choice
+        options:
+          - "public"
+          - "unlisted"
+          - "private"
+
+concurrency:
+  group: daily-master-media-scheduler
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  execute-daily-slot:
+    name: "Execute Daily Scheduled Media Slot"
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+
+      - name: "Setup Static FFmpeg"
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          ffmpeg-version: 'release'
+
+      - name: "Set up Python 3.11"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: "Install Dependencies"
+        run: |
+          python -m pip install --upgrade pip
+          pip install moviepy pillow matplotlib numpy requests gTTS python-dotenv pydantic
+
+      - name: "Determine and Execute Slot"
+        env:
+          YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
+          PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+        run: |
+          python -c "
+          import os, sys, datetime, subprocess
+
+          slot_arg = '${{ github.event.inputs.target_slot }}' or 'auto'
+          privacy = '${{ github.event.inputs.privacy_status }}' or 'public'
+          cur_hour = datetime.datetime.now(datetime.timezone.utc).hour
+
+          if slot_arg == 'auto':
+              if 2 <= cur_hour <= 6:
+                  active_slot = 'slot1_morning_reel'
+              elif 7 <= cur_hour <= 11:
+                  active_slot = 'slot2_afternoon_reel'
+              elif 12 <= cur_hour <= 14:
+                  active_slot = 'slot3_evening_long'
+              else:
+                  active_slot = 'slot4_night_reel'
+          else:
+              active_slot = slot_arg
+
+          print(f'=== ACTIVATING SLOT: {active_slot} (UTC Hour: {cur_hour}) ===')
+
+          if active_slot == 'slot3_evening_long':
+              print('Executing Slot 3: Long-Form Video Masterclass...')
+              cmd = [sys.executable, 'scripts/render_sat_desmos_masterclass.py', '--full']
+              subprocess.run(cmd, check=True)
+              pub_cmd = [sys.executable, 'scripts/publish_sat_desmos_masterclass.py', '--privacy-status', privacy]
+              subprocess.run(pub_cmd, check=True)
+          else:
+              print(f'Executing Reel/Short Slot ({active_slot})...')
+              # Run daily social autopost for multi-channel video reel distribution
+              cmd = [sys.executable, 'scripts/daily_social_autopost.py', '--mode', 'live', '--slot', active_slot]
+              # If daily_social_autopost finishes or handles it, proceed
+              res = subprocess.run(cmd)
+              print('Social autopost exit code:', res.returncode)
+          "
