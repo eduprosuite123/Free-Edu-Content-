@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       episode:
-        description: 'Episode number to render from 100-catalog (1-100, default: 1)'
+        description: 'Episode number to render (1-100, leave blank for auto-next from database catalog)'
         required: false
-        default: '1'
+        default: ''
       upload_to_youtube:
         description: 'Upload directly to YouTube via Data API v3'
         required: true
@@ -55,9 +55,14 @@ jobs:
 
       - name: Render 1080p Desmos 3D Masterclass Video
         run: |
-          EP="${{ github.event.inputs.episode || 1 }}"
-          echo "[+] Rendering Desmos 3D Masterclass Episode $EP..."
-          python scripts/render_desmos_3d_episode.py --episode "$EP"
+          EP="${{ github.event.inputs.episode }}"
+          if [ -n "$EP" ]; then
+            echo "[+] Rendering Desmos 3D Masterclass Episode $EP (Manual Input)..."
+            python scripts/render_desmos_3d_episode.py --episode "$EP"
+          else
+            echo "[+] Rendering Next Scheduled Desmos 3D Episode from Database Catalog..."
+            python scripts/render_desmos_3d_episode.py
+          fi
 
       - name: Upload 1080p MP4 as Workflow Artifact
         uses: actions/upload-artifact@v4
