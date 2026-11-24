@@ -18,6 +18,7 @@ Thumbs.db
 *.png
 *.wav
 *.mp3
+!data/user_raw_sample.wav
 
 # Sensitive files
 credentials.json

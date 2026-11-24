@@ -167,30 +167,35 @@ def get_next_short_spec(force_index: int = None) -> dict:
     return spec
 
 async def synthesize_speech(text: str, output_path: Path):
-    import edge_tts
-    raw_path = output_path.with_suffix(".raw.mp3")
-    communicate = edge_tts.Communicate(text, VOICE_MODEL, rate=VOICE_RATE, pitch=VOICE_PITCH)
-    await communicate.save(str(raw_path))
-    
-    studio_filter = (
-        "equalizer=f=250:width_type=o:w=1.2:g=2.0,"
-        "equalizer=f=2800:width_type=o:w=1.0:g=2.5,"
-        "acompressor=threshold=-16dB:ratio=3:attack=15:release=120,"
-        "loudnorm=I=-16:TP=-1.0:LRA=9"
-    )
-    cmd = [
-        "ffmpeg", "-y", "-i", str(raw_path),
-        "-af", studio_filter,
-        "-ar", "44100",
-        str(output_path)
-    ]
     try:
-        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        if raw_path.exists():
-            raw_path.unlink()
-    except Exception:
-        if raw_path.exists():
-            raw_path.rename(output_path)
+        from scripts.cloned_voice_engine import synthesize_user_cloned_voice
+        synthesize_user_cloned_voice(text, output_path)
+    except Exception as e:
+        print(f"[WARN] cloned_voice_engine import error ({e}), running inline fallback...")
+        import edge_tts
+        raw_path = output_path.with_suffix(".raw.mp3")
+        communicate = edge_tts.Communicate(text, VOICE_MODEL, rate=VOICE_RATE, pitch=VOICE_PITCH)
+        await communicate.save(str(raw_path))
+        
+        studio_filter = (
+            "equalizer=f=250:width_type=o:w=1.2:g=2.0,"
+            "equalizer=f=2800:width_type=o:w=1.0:g=2.5,"
+            "acompressor=threshold=-16dB:ratio=3:attack=15:release=120,"
+            "loudnorm=I=-16:TP=-1.0:LRA=9"
+        )
+        cmd = [
+            "ffmpeg", "-y", "-i", str(raw_path),
+            "-af", studio_filter,
+            "-ar", "44100",
+            str(output_path)
+        ]
+        try:
+            subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            if raw_path.exists():
+                raw_path.unlink()
+        except Exception:
+            if raw_path.exists():
+                raw_path.rename(output_path)
 
 def generate_stereo_sonification(spec: dict, duration_sec: float) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     total_samples = int(SAMPLE_RATE * duration_sec)
