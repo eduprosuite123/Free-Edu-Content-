@@ -54,5 +54,12 @@
     "platform": "Facebook",
     "type": "Reel",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-24T23:20:50.269969+00:00",
+    "slot_id": "youtube_shorts",
+    "platform": "YouTube",
+    "type": "Shorts",
+    "mode": "live"
   }
 ]
