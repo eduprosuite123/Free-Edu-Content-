@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       render_mode:
-        description: 'Rendering Mode (test = 2 equations ~2 min, full = 10 equations ~10 min)'
+        description: 'Rendering Mode (test = 2 equations, full = 10 equations ~10 min)'
         required: true
         default: 'test'
         type: choice
@@ -22,17 +22,17 @@ on:
       upload_to_youtube:
         description: 'Upload directly to YouTube via Data API v3'
         required: true
-        default: false
+        default: true
         type: boolean
       privacy_status:
-        description: 'YouTube Privacy Status (if uploaded)'
+        description: 'YouTube Privacy Status (public, unlisted, private)'
         required: true
-        default: 'private'
+        default: 'public'
         type: choice
         options:
-          - 'private'
-          - 'unlisted'
           - 'public'
+          - 'unlisted'
+          - 'private'
 
 permissions:
   contents: write
@@ -74,10 +74,21 @@ jobs:
           path: output/*.mp4
           retention-days: 14
 
-      - name: Upload to YouTube via API v3 (Optional)
+      - name: Publish to YouTube with 100% SEO Metadata
         if: ${{ github.event.inputs.upload_to_youtube == 'true' || github.event.inputs.upload_to_youtube == true }}
         env:
           YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
-          echo "[+] Publishing to YouTube (Privacy: ${{ github.event.inputs.privacy_status }})..."
-          python scripts/upload_short_to_youtube.py ${{ github.event.inputs.privacy_status }}
+          echo "[+] Publishing 1080p Masterclass to YouTube with 100% SEO Meta (Privacy: ${{ github.event.inputs.privacy_status }})..."
+          python scripts/upload_acoustic_math_to_youtube.py ${{ github.event.inputs.privacy_status }}
+
+      - name: Commit Upload Receipts
+        if: ${{ github.event.inputs.upload_to_youtube == 'true' || github.event.inputs.upload_to_youtube == true }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/
+          git diff --staged --quiet || (git commit -m "chore(receipt): update YouTube masterclass publication receipt [skip ci]" && git push origin main)
