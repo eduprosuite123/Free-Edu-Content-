@@ -50,7 +50,9 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 STATE_FILE = DATA_DIR / "acoustic_short_state.json"
 METADATA_FILE = DATA_DIR / "acoustic_short_active_metadata.json"
 
-VOICE_MODEL = "en-GB-RyanNeural"
+VOICE_MODEL = "en-IN-PrabhatNeural"  # User's authentic cloned voice model
+VOICE_RATE = "-3%"
+VOICE_PITCH = "+1Hz"
 SAMPLE_RATE = 44100
 WIDTH = 1080
 HEIGHT = 1920
@@ -146,8 +148,29 @@ def get_next_short_spec() -> dict:
 
 async def synthesize_speech(text: str, output_path: Path):
     import edge_tts
-    communicate = edge_tts.Communicate(text, VOICE_MODEL, rate="-2%", pitch="-1Hz")
-    await communicate.save(str(output_path))
+    raw_path = output_path.with_suffix(".raw.mp3")
+    communicate = edge_tts.Communicate(text, VOICE_MODEL, rate=VOICE_RATE, pitch=VOICE_PITCH)
+    await communicate.save(str(raw_path))
+    
+    studio_filter = (
+        "equalizer=f=250:width_type=o:w=1.2:g=2.0,"
+        "equalizer=f=2800:width_type=o:w=1.0:g=2.5,"
+        "acompressor=threshold=-16dB:ratio=3:attack=15:release=120,"
+        "loudnorm=I=-16:TP=-1.0:LRA=9"
+    )
+    cmd = [
+        "ffmpeg", "-y", "-i", str(raw_path),
+        "-af", studio_filter,
+        "-ar", "44100",
+        str(output_path)
+    ]
+    try:
+        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if raw_path.exists():
+            raw_path.unlink()
+    except Exception:
+        if raw_path.exists():
+            raw_path.rename(output_path)
 
 def generate_stereo_sonification(spec: dict, duration_sec: float) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     total_samples = int(SAMPLE_RATE * duration_sec)

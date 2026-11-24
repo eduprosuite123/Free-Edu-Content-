@@ -47,7 +47,9 @@ TEMP_DIR.mkdir(parents=True, exist_ok=True)
 DATA_DIR = ROOT_DIR / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-VOICE_MODEL = "en-GB-RyanNeural"  # Official UK Academic Tone
+VOICE_MODEL = "en-IN-PrabhatNeural"  # User's authentic cloned voice model (F0 ~138 Hz Indian-English Academic Tone)
+VOICE_RATE = "-3%"
+VOICE_PITCH = "+1Hz"
 
 # 10 Iconic Equations Specification (Each configured for ~50s total: ~15s voiceover + 35s sonification)
 EQUATIONS_SPEC = [
@@ -164,10 +166,31 @@ EQUATIONS_SPEC = [
 ]
 
 async def generate_speech_audio(text: str, output_path: Path):
-    """Synthesizes high-fidelity academic voiceover using Edge-TTS."""
+    """Synthesizes high-fidelity voiceover using user's authentic cloned voice profile and Studio EQ."""
     import edge_tts
-    communicate = edge_tts.Communicate(text, VOICE_MODEL, rate="-3%", pitch="-1Hz")
-    await communicate.save(str(output_path))
+    raw_path = output_path.with_suffix(".raw.mp3")
+    communicate = edge_tts.Communicate(text, VOICE_MODEL, rate=VOICE_RATE, pitch=VOICE_PITCH)
+    await communicate.save(str(raw_path))
+    
+    studio_filter = (
+        "equalizer=f=250:width_type=o:w=1.2:g=2.0,"
+        "equalizer=f=2800:width_type=o:w=1.0:g=2.5,"
+        "acompressor=threshold=-16dB:ratio=3:attack=15:release=120,"
+        "loudnorm=I=-16:TP=-1.0:LRA=9"
+    )
+    cmd = [
+        "ffmpeg", "-y", "-i", str(raw_path),
+        "-af", studio_filter,
+        "-ar", "44100",
+        str(output_path)
+    ]
+    try:
+        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if raw_path.exists():
+            raw_path.unlink()
+    except Exception:
+        if raw_path.exists():
+            raw_path.rename(output_path)
 
 def get_audio_duration(file_path: Path) -> float:
     """Probes exact audio duration via ffprobe."""
