@@ -26,5 +26,12 @@
     "platform": "Facebook",
     "type": "Link Post",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-24T19:31:57.415408+00:00",
+    "slot_id": "youtube_long",
+    "platform": "YouTube",
+    "type": "Long Video",
+    "mode": "live"
   }
 ]
