@@ -1,0 +1,165 @@
+name: 09 Daily Social Multi-Channel Auto-Post
+
+on:
+  schedule:
+    # 15 Master Scheduled Daily Slots (UTC | EST | IST):
+    # 1. 12:30 UTC = 08:30 AM EST / 06:00 PM IST (Threads Morning Quick Tip)
+    - cron: '30 12 * * *'
+    # 2. 13:00 UTC = 09:00 AM EST / 06:30 PM IST (Facebook Reel #1)
+    - cron: '0 13 * * *'
+    # 3. 13:30 UTC = 09:30 AM EST / 07:00 PM IST (Bluesky Post #1)
+    - cron: '30 13 * * *'
+    # 4. 15:30 UTC = 11:30 AM EST / 09:00 PM IST (Instagram Carousel)
+    - cron: '30 15 * * *'
+    # 5. 17:00 UTC = 01:00 PM EST / 10:30 PM IST (Facebook Link Post)
+    - cron: '0 17 * * *'
+    # 6. 17:30 UTC = 01:30 PM EST / 11:00 PM IST (Pinterest Video Pin)
+    - cron: '30 17 * * *'
+    # 7. 18:30 UTC = 02:30 PM EST / 12:00 AM IST (Threads Mid-Day)
+    - cron: '30 18 * * *'
+    # 8. 19:00 UTC = 03:00 PM EST / 12:30 AM IST (YouTube Long Video)
+    - cron: '0 19 * * *'
+    # 9. 20:30 UTC = 04:30 PM EST / 02:00 AM IST (Bluesky Post #2)
+    - cron: '30 20 * * *'
+    # 10. 22:00 UTC = 06:00 PM EST / 03:30 AM IST (Instagram Reel)
+    - cron: '0 22 * * *'
+    # 11. 22:30 UTC = 06:30 PM EST / 04:00 AM IST (Pinterest Static Pin #1)
+    - cron: '30 22 * * *'
+    # 12. 23:00 UTC = 07:00 PM EST / 04:30 AM IST (Facebook Reel #2)
+    - cron: '0 23 * * *'
+    # 13. 23:30 UTC = 07:30 PM EST / 05:00 AM IST (YouTube Shorts)
+    - cron: '30 23 * * *'
+    # 14. 00:30 UTC = 08:30 PM EST / 06:00 AM IST (Pinterest Static Pin #2)
+    - cron: '30 0 * * *'
+    # 15. 01:00 UTC = 09:00 PM EST / 06:30 AM IST (Threads Night Recap)
+    - cron: '0 1 * * *'
+
+  workflow_dispatch:
+    inputs:
+      execution_mode:
+        description: 'Execution Mode (dry-run or live)'
+        required: true
+        default: 'dry-run'
+        type: choice
+        options:
+          - 'dry-run'
+          - 'live'
+      target_slot:
+        description: 'Target Slot to Run (or auto)'
+        required: true
+        default: 'auto'
+        type: choice
+        options:
+          - 'auto'
+          - 'threads_morning'
+          - 'fb_reel_1'
+          - 'bluesky_1'
+          - 'ig_carousel'
+          - 'fb_link_post'
+          - 'pinterest_video'
+          - 'threads_midday'
+          - 'youtube_long'
+          - 'bluesky_2'
+          - 'ig_reel'
+          - 'pinterest_static_1'
+          - 'fb_reel_2'
+          - 'youtube_shorts'
+          - 'pinterest_static_2'
+          - 'threads_night'
+
+  repository_dispatch:
+    types: [autopost, social_broadcast]
+
+concurrency:
+  group: single-job-runner
+  cancel-in-progress: false
+
+jobs:
+  daily-social-autopost:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Checkout Public Landing Media Host
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: eduprosuite-org/eduprosuite-pro-landing
+          token: ${{ secrets.ACTIONS_PAT || secrets.GITHUB_TOKEN }}
+          path: eduprosuite-pro-landing
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Verify Link Health & Prevent 404s
+        run: |
+          python scripts/link_health_verifier.py
+
+      - name: Real-Time Search Telemetry Harvest (Google & YouTube Auto-Suggest)
+        run: |
+          echo "[+] Harvesting live Google & YouTube auto-suggest queries (last 24-72h)..."
+          python scripts/trend_keyword_harvester.py
+
+      - name: Autonomous Video & Audio Production Engine (FFmpeg AAC Muxed + Fresh Pin)
+        run: |
+          echo "[+] Running local Python viral engine (scripts/viral_trend_scout_and_generator.py)..."
+          python scripts/viral_trend_scout_and_generator.py
+
+      - name: Sync Rotated Media to Public CDN
+        continue-on-error: true
+        run: |
+          if [ -d "eduprosuite-pro-landing" ]; then
+            cd eduprosuite-pro-landing
+            git config --global user.name 'github-actions[bot]'
+            git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+            git add eduprosuite_viral_trend_reel.mp4 eduprosuite_viral_trend_pin.png
+            git diff --staged --quiet || (git commit -m "Auto: Update daily viral reel and pin [skip ci]" && git push origin main)
+            cd ..
+          fi
+
+      - name: Optimize Two-Tower Recommendation Vector Embeddings
+        run: |
+          echo "[+] Running Two-Tower Social Vector Optimizer (scripts/social_vector_embedding_optimizer.py)..."
+          python scripts/social_vector_embedding_optimizer.py --optimize
+
+      - name: Execute 15-Slot Master Social Scheduler
+        env:
+          MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+          PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
+          META_USER_ACCESS_TOKEN: ${{ secrets.META_USER_ACCESS_TOKEN }}
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
+        run: |
+          SLOT_TO_RUN="${{ github.event.inputs.target_slot }}"
+          if [ -z "$SLOT_TO_RUN" ]; then
+            SLOT_TO_RUN="auto"
+          fi
+          echo "[+] Running Master Social Scheduler for slot: $SLOT_TO_RUN"
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.execution_mode }}" = "live" ]; then
+            python scripts/master_social_scheduler.py --slot "$SLOT_TO_RUN" --live
+          else
+            python scripts/master_social_scheduler.py --slot "$SLOT_TO_RUN" --dry-run
+          fi
+
+      - name: Commit Rotation State & Logs
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/
+          git diff --staged --quiet || (git commit -m "Auto: Update daily social rotation state and logs [skip ci]" && git pull --rebase -X theirs origin main && git push origin main)

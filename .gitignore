@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.env
+venv/
+env/
+.pytest_cache/
+
+# OS & Logs
+.DS_Store
+Thumbs.db
+*.log
+
+# Video / Large binaries (Generated on-the-fly inside runner)
+*.mp4
+*.png
+*.wav
+*.mp3
+
+# Sensitive files
+credentials.json
+token.json
+client_secrets.json
+*client_secret*.json
