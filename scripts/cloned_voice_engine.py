@@ -49,7 +49,12 @@ def _apply_studio_mastering(input_audio: Path, output_audio: Path):
         "-ar", "44100",
         str(output_audio)
     ]
-    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except Exception as e:
+        import shutil
+        print(f"[!] Warning: FFmpeg studio mastering failed ({e}), using raw voice file directly.")
+        shutil.copy2(input_audio, output_audio)
 
 def synthesize_user_cloned_voice(text: str, output_path: str | Path) -> Path:
     """
