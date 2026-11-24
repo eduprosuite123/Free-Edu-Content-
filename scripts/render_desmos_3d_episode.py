@@ -337,10 +337,10 @@ def build_desmos_3d_video(episode_index: int = 1) -> Path:
     
     # Save active metadata for upload sync
     metadata = {
-        "episode_number": spec["episode_number"],
-        "id": spec["id"],
-        "title": spec["title"],
-        "short_title": spec["short_title"],
+        "episode_number": int(spec["episode_number"]),
+        "id": str(spec["id"]),
+        "title": str(spec["title"]),
+        "short_title": str(spec["short_title"]),
         "file": str(final_mp4),
         "description": f"""{spec['title']}
 
@@ -358,19 +358,19 @@ In this Desmos 3D Masterclass, we construct a fully interactive three-dimensiona
 https://eduprosuite.pro/
 
 #Desmos #Desmos3D #Calculus #LinearAlgebra #Mathematics #STEM #ComputerGraphics #Donut #MathVisualizer""",
-        "tags": spec["seo_tags"],
-        "duration": total_duration
+        "tags": [str(t) for t in spec["seo_tags"]],
+        "duration": float(total_duration)
     }
     with open(METADATA_FILE, "w", encoding="utf-8") as f:
         json.dump(metadata, f, indent=2)
         
     # Update next episode in state
-    next_idx = (idx + 1) % 100
+    next_idx = int((idx + 1) % 100)
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump({
-            "last_completed_episode": spec["episode_number"],
-            "last_id": spec["id"],
-            "next_episode_index": next_idx
+            "last_completed_episode": int(spec["episode_number"]),
+            "last_id": str(spec["id"]),
+            "next_episode_index": int(next_idx)
         }, f, indent=2)
         
     print(f"\n🎉 [SUCCESS] DESMOS 3D EPISODE {spec['episode_number']} GENERATED!")
