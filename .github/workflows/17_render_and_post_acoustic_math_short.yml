@@ -2,14 +2,18 @@ name: 17 Acoustic Math YouTube Short & Reel Engine
 
 on:
   schedule:
-    # Daily automated schedule at 18:00 UTC (2:00 PM EST / 7:00 PM GMT / 11:30 PM IST - Peak Shorts Browsing Window)
+    # Slot 1: 00:00 UTC (8:00 PM EST / 5:30 AM IST - US Prime Evening Study Block)
+    - cron: '0 0 * * *'
+    # Slot 2: 08:00 UTC (4:00 AM EST / 1:30 PM IST - EU/Asia Daytime Peak, 8 hrs after Slot 1)
+    - cron: '0 8 * * *'
+    # Slot 3: 18:00 UTC (2:00 PM EST / 11:30 PM IST - US Afternoon Peak Shorts Browsing, 10 hrs after Slot 2)
     - cron: '0 18 * * *'
   workflow_dispatch:
     inputs:
       equation_index:
-        description: 'Equation index to render (0 = y=x^x, 1 = sin(x^2), leave empty for rotation)'
+        description: 'Equation index to render (0-19, leave empty for auto-advance from 20-episode catalog)'
         required: false
-        default: '0'
+        default: ''
       upload_to_youtube:
         description: 'Upload directly to YouTube Shorts via Data API v3'
         required: true

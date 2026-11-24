@@ -58,7 +58,7 @@ WIDTH = 1080
 HEIGHT = 1920
 FPS = 30
 
-# Mathematically Verified Equation Catalog for STEM Students & Learners
+# Mathematically Verified Equation Catalog for STEM Students & Learners (20-Episode SOTA Rotation)
 SHORTS_CATALOG = [
     {
         "id": "short_01_cursed_x_power_x",
@@ -73,14 +73,7 @@ SHORTS_CATALOG = [
         "func": lambda x: np.power(x, x),
         "freq_range": (200.0, 1600.0),
         "sonif_sec": 22.0,
-        "annotations": [
-            {
-                "x": 1.0 / np.e,
-                "y": np.power(1.0 / np.e, 1.0 / np.e),
-                "label": r"Min: $x = 1/e \approx 0.368$",
-                "offset": (15, -20)
-            }
-        ],
+        "annotations": [{"x": 1.0 / np.e, "y": np.power(1.0 / np.e, 1.0 / np.e), "label": r"Min: $x = 1/e pprox 0.368$", "offset": (15, -20)}],
         "tags": ["math sounds", "desmos sound", "calculus", "what math sounds like", "equation sonification", "shorts", "ap calculus"]
     },
     {
@@ -103,7 +96,7 @@ SHORTS_CATALOG = [
         "id": "short_03_riemann_zeta",
         "title": "What The Million-Dollar Riemann Hypothesis Zeros Sound Like 🎧",
         "short_title": "Riemann Hypothesis Zeros Sound #Shorts",
-        "formula": r"$\zeta(\frac{1}{2} + it) = 0$",
+        "formula": r"$\zeta(rac{1}{2} + it) = 0$",
         "curve_name": "Riemann Zeta Critical Line",
         "subtitle": "Critical Line: Re(s) = 1/2 (Prime Harmonics)",
         "hook_text": "MILLION-DOLLAR MATH:\nRIEMANN ZETA SOUND 🎼🎧",
@@ -119,7 +112,7 @@ SHORTS_CATALOG = [
         "id": "short_04_infinite_barrier",
         "title": "When A Math Function Hits Infinity: y = tan(x) 🎧",
         "short_title": "The Infinite Barrier y = tan(x) #Shorts",
-        "formula": r"$y = \tan(x)$",
+        "formula": r"$y = 	an(x)$",
         "curve_name": "The Infinite Barrier: y = tan(x)",
         "subtitle": "Asymptotes at x = ±π/2 (Singularity)",
         "hook_text": "WHEN A FUNCTION HITS\nINFINITY: y = tan(x) 🚀🎧",
@@ -146,6 +139,246 @@ SHORTS_CATALOG = [
         "sonif_sec": 22.0,
         "annotations": [],
         "tags": ["topologist sine", "math sounds", "desmos sound", "pure math", "shorts", "math visualizer"]
+    },
+    {
+        "id": "short_06_gaussian_bell",
+        "title": "The Geometry of Chance: Normal Distribution e^(-x²) 🎧",
+        "short_title": "Normal Distribution e^(-x²) Sound #Shorts",
+        "formula": r"$y = e^{-x^2} \quad 	ext{(Gaussian Bell)}$",
+        "curve_name": "The Gaussian Bell Curve",
+        "subtitle": "Inflection Points at x = ±1/√2",
+        "hook_text": "THE SOUND OF NATURE:\nGAUSSIAN BELL CURVE 🔔🎧",
+        "narration": "The Gaussian bell curve underpins the entire Central Limit Theorem and quantum mechanics. Notice the smooth acoustic swell as x approaches zero, peaking at unity before tapering into infinite asymptotic silence.",
+        "x_range": (-3.0, 3.0),
+        "func": lambda x: np.exp(-x**2),
+        "freq_range": (180.0, 1400.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["gaussian curve", "normal distribution", "math sounds", "statistics", "shorts", "stem"]
+    },
+    {
+        "id": "short_07_damped_harmonic",
+        "title": "Damped Harmonic Oscillation: e^(-0.4x) cos(4x) 🎧",
+        "short_title": "Damped Harmonic Motion Sound #Shorts",
+        "formula": r"$y = e^{-0.4x}\cos(4x)$",
+        "curve_name": "Damped Mechanical Resonance",
+        "subtitle": "Second Order ODE Transient Response",
+        "hook_text": "WHY EVERY PENDULUM DIES:\nDAMPED OSCILLATOR ⏱️🎧",
+        "narration": "Every physical oscillator, from guitar strings to shock absorbers, obeys damped harmonic motion. Listen as the rapid four-hertz oscillation gradually decays within an exponential envelope, mirroring energy dissipation in real physics.",
+        "x_range": (0.0, 10.0),
+        "func": lambda x: np.exp(-0.4*x) * np.cos(4*x),
+        "freq_range": (240.0, 1500.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["harmonic oscillator", "physics simulation", "differential equations", "desmos sound", "shorts"]
+    },
+    {
+        "id": "short_08_cardinal_sinc",
+        "title": "The Miracle of Digital Audio: Cardinal Sinc Function 🎧",
+        "short_title": "Cardinal Sinc Function Sound #Shorts",
+        "formula": r"$y = rac{\sin(\pi x)}{\pi x} \quad 	ext{(Sinc)}$",
+        "curve_name": "Whittaker-Shannon Sinc Filter",
+        "subtitle": "Zero-Crossings at All Non-Zero Integers",
+        "hook_text": "THE MATH THAT SAVED\nDIGITAL MUSIC: SINC(X) 🎵🎧",
+        "narration": "Without the sinc function, digital music and streaming would not exist. It represents the ideal brick-wall lowpass filter in Fourier analysis. Its zeroes occur precisely at every integer, allowing continuous waveforms to be reconstructed from discrete samples.",
+        "x_range": (-12.0, 12.0),
+        "func": lambda x: np.sinc(x / np.pi),
+        "freq_range": (200.0, 1450.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["sinc function", "digital signal processing", "fourier transform", "desmos sound", "shorts"]
+    },
+    {
+        "id": "short_09_catenary_gravity",
+        "title": "The Golden Gate Math: Hyperbolic Cosine Catenary 🎧",
+        "short_title": "The Hanging Catenary y = cosh(x) #Shorts",
+        "formula": r"$y = \cosh(x) = rac{e^x + e^{-x}}{2}$",
+        "curve_name": "The Hanging Chain Catenary",
+        "subtitle": "Calculus of Variations: Minimum Potential",
+        "hook_text": "WHY BRIDGES DON'T COLLAPSE:\nTHE CATENARY CURVE 🌉🎧",
+        "narration": "A flexible cable hanging under gravity does not form a parabola, but a catenary, governed by hyperbolic cosine. In the calculus of variations, this shape minimizes gravitational potential energy, producing optimal mechanical equilibrium.",
+        "x_range": (-2.5, 2.5),
+        "func": lambda x: np.cosh(x) - 1.0,
+        "freq_range": (220.0, 1550.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["catenary curve", "hyperbolic functions", "calculus of variations", "bridge engineering", "shorts"]
+    },
+    {
+        "id": "short_10_witch_of_agnesi",
+        "title": "Maria Agnesi's Geometric Bell: Witch of Agnesi 🎧",
+        "short_title": "Witch of Agnesi Curve Sound #Shorts",
+        "formula": r"$y = rac{8}{x^2 + 4}$",
+        "curve_name": "The Witch of Agnesi (Versiera)",
+        "subtitle": "Maria Gaetana Agnesi (1748 Classic)",
+        "hook_text": "THE HISTORIC 1748 BELL:\nWITCH OF AGNESI 📜🎧",
+        "narration": "Named after the pioneering Italian mathematician Maria Gaetana Agnesi in 1748, the Versiera represents a pristine geometric construction with total integral area equal to four pi. Notice the warm, bell-shaped acoustic profile.",
+        "x_range": (-6.0, 6.0),
+        "func": lambda x: 8.0 / (x**2 + 4.0),
+        "freq_range": (200.0, 1400.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["witch of agnesi", "history of math", "calculus curves", "desmos sound", "shorts"]
+    },
+    {
+        "id": "short_11_dirichlet_pulse",
+        "title": "Fourier Pulse Train: The Dirichlet Kernel 🎧",
+        "short_title": "Dirichlet Fourier Kernel #Shorts",
+        "formula": r"$D_n(x) = rac{\sin(2.5x)}{\sin(0.5x)}$",
+        "curve_name": "The Dirichlet Fourier Kernel",
+        "subtitle": "Trigonometric Polynomial Summation",
+        "hook_text": "HOW SOUND BREAKS DOWN:\nDIRICHLET KERNEL 🎛️🎧",
+        "narration": "In Fourier analysis, the Dirichlet kernel demonstrates how summing finite harmonics concentrates energy into periodic sharp pulses. Hear the explosive rise as the denominator vanishes at multiples of two pi.",
+        "x_range": (0.1, 6.0),
+        "func": lambda x: np.sin(2.5*x) / np.maximum(np.sin(0.5*x), 1e-3),
+        "freq_range": (180.0, 1650.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["fourier series", "dirichlet kernel", "harmonic analysis", "math sound", "shorts"]
+    },
+    {
+        "id": "short_12_fresnel_spiral",
+        "title": "The Optical Diffraction Chirp: Fresnel Wave 🎧",
+        "short_title": "Fresnel Diffraction Wave #Shorts",
+        "formula": r"$y = \sin(x^3 / 3)$",
+        "curve_name": "Fresnel Cubic Phase Integral",
+        "subtitle": "Quadratic Acceleration of Zero Crossings",
+        "hook_text": "WHEN LIGHT BENDS:\nFRESNEL CUBIC CHIRP 🌈🎧",
+        "narration": "When light passes a razor sharp aperture, it diffracts according to Fresnel integrals. Because the phase depends on x cubed, the frequency accelerates quadratically, creating an ultra-dense acoustic burst.",
+        "x_range": (0.0, 3.5),
+        "func": lambda x: np.sin(x**3 / 3.0),
+        "freq_range": (220.0, 1700.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["optics", "fresnel diffraction", "calculus", "chirp wave", "shorts"]
+    },
+    {
+        "id": "short_13_log_resonance",
+        "title": "Logarithmic Modulated Beat: y = ln(x) sin(x) 🎧",
+        "short_title": "Logarithmic Sine Wave #Shorts",
+        "formula": r"$y = \ln(x)\sin(x) \quad (x > 0)$",
+        "curve_name": "Logarithmic Modulation",
+        "subtitle": "Negative Singularity to Expanding Amplitude",
+        "hook_text": "WHAT LOGARITHMIC SINE\nACTUALLY SOUNDS LIKE 📈🎧",
+        "narration": "By multiplying natural logarithm with sine, the waveform starts with an infinite downward singularity near x equals zero, passes through silence at x equals one, and expands dynamically across higher amplitudes.",
+        "x_range": (0.1, 12.0),
+        "func": lambda x: np.log(np.maximum(x, 1e-3)) * np.sin(x),
+        "freq_range": (200.0, 1500.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["logarithm", "sine modulation", "calculus", "desmos graphing", "shorts"]
+    },
+    {
+        "id": "short_14_airy_wave",
+        "title": "Rainbow Diffraction Wave: Airy Function Prototype 🎧",
+        "short_title": "Airy Caustic Diffraction Wave #Shorts",
+        "formula": r"$y = \cos(x^3 - 3x)$",
+        "curve_name": "Airy Caustic Wave Prototype",
+        "subtitle": "Transition from Exponential to Oscillatory",
+        "hook_text": "THE GEOMETRY OF RAINBOWS:\nAIRY WAVE DYNAMICS 🌧️🎧",
+        "narration": "The Airy differential equation describes how light caustics form intense rainbow bands. The cubic phase produces an abrupt turning point at the critical boundary before exploding into oscillatory fringes.",
+        "x_range": (-1.5, 2.5),
+        "func": lambda x: np.cos(x**3 - 3*x),
+        "freq_range": (240.0, 1600.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["airy function", "optics", "diffraction caustics", "physics math", "shorts"]
+    },
+    {
+        "id": "short_15_bessel_j0",
+        "title": "Vibrating Drumhead Modes: Bessel J0 Approximation 🎧",
+        "short_title": "Bessel Drumhead Resonance #Shorts",
+        "formula": r"$y pprox rac{\sin(x)}{\sqrt{x}}$",
+        "curve_name": "Cylindrical Bessel Wave J0",
+        "subtitle": "Asymptotic Decay of Circular Membrane",
+        "hook_text": "HOW CIRCULAR DRUMS VIBRATE:\nBESSEL WAVE DYNAMICS 🥁🎧",
+        "narration": "When a circular membrane is struck, its radial modes are governed by Bessel functions of the first kind. Notice how each successive concentric wave peak decays inversely with the square root of radius.",
+        "x_range": (0.1, 15.0),
+        "func": lambda x: np.sin(x) / np.maximum(np.sqrt(np.abs(x)), 0.1),
+        "freq_range": (220.0, 1400.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["bessel function", "acoustics", "differential equations", "vibrations", "shorts"]
+    },
+    {
+        "id": "short_16_cauchy_lorentz",
+        "title": "The Resonant Spectral Line: Cauchy-Lorentz 🎧",
+        "short_title": "Cauchy-Lorentz Distribution #Shorts",
+        "formula": r"$y = rac{1}{1 + x^2} \quad 	ext{(Lorentzian)}$",
+        "curve_name": "Cauchy-Lorentz Resonance Peak",
+        "subtitle": "Heavy-Tailed Distribution with Undefined Mean",
+        "hook_text": "WHY ATOMS ABSORB LIGHT:\nLORENTZ RESONANCE ⚛️🎧",
+        "narration": "In spectroscopy, atomic emission lines exhibit a Lorentzian profile due to natural lifetime broadening. Unlike the Gaussian curve, the Cauchy distribution has fat tails, giving it infinite mathematical variance.",
+        "x_range": (-4.0, 4.0),
+        "func": lambda x: 1.0 / (1.0 + x**2),
+        "freq_range": (200.0, 1450.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["cauchy distribution", "quantum mechanics", "spectroscopy", "desmos sound", "shorts"]
+    },
+    {
+        "id": "short_17_poisson_pulse",
+        "title": "Gamma Energy Distribution: x³ e^(-x) 🎧",
+        "short_title": "Gamma Distribution Peak #Shorts",
+        "formula": r"$y = x^3 e^{-x} \quad (x > 0)$",
+        "curve_name": "Gamma Poisson Pulse",
+        "subtitle": "Global Maximum at x = 3",
+        "hook_text": "RADIATION ENERGY PEAK:\nGAMMA PROBABILITY PULSE ☢️🎧",
+        "narration": "Taking the derivative of x cubed times e to the negative x reveals a peak at exactly x equals three. This asymmetry models waiting times in Poisson queuing theory and thermal neutron energy spectra.",
+        "x_range": (0.0, 10.0),
+        "func": lambda x: (x**3) * np.exp(-x),
+        "freq_range": (200.0, 1550.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["gamma distribution", "calculus optimization", "probability", "desmos sound", "shorts"]
+    },
+    {
+        "id": "short_18_weierstrass_fractal",
+        "title": "The Monster of Calculus: Weierstrass Fractal 🎧",
+        "short_title": "Weierstrass Fractal Curve #Shorts",
+        "formula": r"$y = \sum_{n=0}^{4} (0.5)^n \cos(3^n x)$",
+        "curve_name": "Weierstrass Continuous Fractal",
+        "subtitle": "Continuous Everywhere, Differentiable Nowhere",
+        "hook_text": "CALCULUS' GREATEST MONSTER:\nWEIERSTRASS FUNCTION 👹🎧",
+        "narration": "In 1872, Karl Weierstrass shocked mathematicians by constructing a function that is continuous everywhere but differentiable nowhere. Hear the recursive jagged harmonics characteristic of pure mathematical fractals.",
+        "x_range": (0.0, 6.28),
+        "func": lambda x: sum(0.5**n * np.cos(3**n * x) for n in range(5)),
+        "freq_range": (250.0, 1600.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["weierstrass function", "fractal math", "real analysis", "calculus monster", "shorts"]
+    },
+    {
+        "id": "short_19_gamma_stirling",
+        "title": "The Infinite Factorial Curve: Stirling Gamma 🎧",
+        "short_title": "Factorial Gamma Function Sound #Shorts",
+        "formula": r"$y pprox x^x e^{-x} \quad (x > 0)$",
+        "curve_name": "Stirling Factorial Approximation",
+        "subtitle": "Euler's Continuous Factorial",
+        "hook_text": "FACTORIALS OF FRACTIONS:\nSTIRLING GAMMA DYNAMICS 🔢🎧",
+        "narration": "How do you calculate the factorial of a fraction or real number? Euler's gamma function connects integer factorials into a smooth curve. Notice the dramatic supersonic rise as x approaches higher values.",
+        "x_range": (0.5, 4.0),
+        "func": lambda x: np.exp(x * np.log(np.maximum(x, 0.1)) - x),
+        "freq_range": (200.0, 1750.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["gamma function", "stirling approximation", "factorials", "desmos sound", "shorts"]
+    },
+    {
+        "id": "short_20_harmonic_beat",
+        "title": "Acoustic Beat Frequency: sin(10x) + sin(11x) 🎧",
+        "short_title": "Acoustic Beat Frequency Sound #Shorts",
+        "formula": r"$y = \sin(10x) + \sin(11x)$",
+        "curve_name": "Acoustic Interference Beats",
+        "subtitle": "Product-to-Sum: 2 cos(0.5x) sin(10.5x)",
+        "hook_text": "WHY OUT-OF-TUNE STRINGS WOBBLE:\nBEAT FREQUENCY 🎸🎧",
+        "narration": "When two audio frequencies are nearly identical, their superposition creates acoustic beats due to constructive and destructive interference. Hear the slow envelope modulation pulsating at one hertz.",
+        "x_range": (0.0, 12.0),
+        "func": lambda x: np.sin(10*x) + np.sin(11*x),
+        "freq_range": (220.0, 1500.0),
+        "sonif_sec": 22.0,
+        "annotations": [],
+        "tags": ["beat frequency", "sound waves", "trigonometry identities", "acoustics", "shorts"]
     }
 ]
 
