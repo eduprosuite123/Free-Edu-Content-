@@ -1,0 +1,74 @@
+name: "16 - Render & Publish SAT Desmos Masterclass"
+
+on:
+  workflow_dispatch:
+    inputs:
+      privacy_status:
+        description: "YouTube Video Privacy Status"
+        required: true
+        default: "public"
+        type: choice
+        options:
+          - "public"
+          - "unlisted"
+          - "private"
+      render_mode:
+        description: "Render Mode: full 10-module masterclass or single test clip"
+        required: true
+        default: "full"
+        type: choice
+        options:
+          - "full"
+          - "test-clip"
+
+permissions:
+  contents: read
+
+jobs:
+  render-and-publish:
+    name: "Render Masterclass & Upload to YouTube"
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+
+      - name: "Set up Python 3.10"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
+      - name: "Install System Media Dependencies (FFmpeg & Fonts)"
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+
+      - name: "Install Python Libraries"
+        run: |
+          python -m pip install --upgrade pip
+          pip install moviepy pillow matplotlib numpy requests gTTS python-dotenv
+
+      - name: "Render SAT Desmos Video (Cloud Headless)"
+        run: |
+          if [ "${{ github.event.inputs.render_mode }}" = "test-clip" ]; then
+            echo "Running test clip render..."
+            python scripts/render_sat_desmos_masterclass.py --test-clip
+          else
+            echo "Running full masterclass render..."
+            python scripts/render_sat_desmos_masterclass.py --full
+          fi
+
+      - name: "Publish Masterclass Video to YouTube"
+        env:
+          YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          if [ "${{ github.event.inputs.render_mode }}" = "test-clip" ]; then
+            python scripts/publish_sat_desmos_masterclass.py --video-path output/sat_masterclass/test_module_1.mp4 --privacy-status ${{ github.event.inputs.privacy_status }}
+          else
+            python scripts/publish_sat_desmos_masterclass.py --video-path output/sat_desmos_masterclass_30min.mp4 --privacy-status ${{ github.event.inputs.privacy_status }}
+          fi

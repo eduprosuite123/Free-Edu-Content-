@@ -1,0 +1,160 @@
+{
+  "series_title": "Digital SAT Math Desmos Masterclass 2025/2026",
+  "subtitle": "Score 800 with 10-Second Desmos Hacks (Zero Formulas Needed)",
+  "total_target_duration_minutes": 30,
+  "competitor_reference": {
+    "title": "The only SAT Math Desmos Guide you'll ever need",
+    "video_id": "jCT0jTVzKy0",
+    "channel": "LearnSATMath",
+    "views_benchmark": "1.1M+"
+  },
+  "modules": [
+    {
+      "module_id": 1,
+      "timestamp": "00:00",
+      "duration_seconds": 180,
+      "title": "Systems of Linear Equations: The 5-Second Intersection Trick",
+      "problem_statement": "If 3x + 2y = 16 and 5x - y = 9, what is the value of x + y?",
+      "algebra_trap": "Manual elimination/substitution takes 90 seconds with high risk of minus-sign arithmetic errors.",
+      "desmos_cheat_code": "Type both equations exactly as written. Click the gray dot at the intersection (2, 5). Add 2 + 5 = 7 directly in Desmos in under 5 seconds.",
+      "desmos_equations": [
+        "3x + 2y = 16",
+        "5x - y = 9",
+        "(2, 5)"
+      ],
+      "pro_tip": "If the SAT asks for x - y or 2x + 3y, never solve by hand—just grab the intersection coordinates and type the target expression into Desmos line 3."
+    },
+    {
+      "module_id": 2,
+      "timestamp": "03:00",
+      "duration_seconds": 210,
+      "title": "Quadratic Vertices, Maximums, Minimums & Roots",
+      "problem_statement": "A projectile's height is given by h(t) = -16t^2 + 64t + 80. At what time t does it reach maximum height, and what is the maximum height?",
+      "algebra_trap": "Using vertex formula -b/(2a) and plugging back in takes 2 minutes and invites sign errors.",
+      "desmos_cheat_code": "Type y = -16x^2 + 64x + 80. Click the peak gray dot at the vertex (2, 144). Answer: t = 2 seconds, max height = 144 feet.",
+      "desmos_equations": [
+        "y = -16x^2 + 64x + 80",
+        "(2, 144)"
+      ],
+      "pro_tip": "Desmos automatically highlights roots (x-intercepts), y-intercept, and the vertex with clickable gray dots. One click reveals all key points."
+    },
+    {
+      "module_id": 3,
+      "timestamp": "06:30",
+      "duration_seconds": 210,
+      "title": "The Ultimate Regression Cheat Code (Table to Equation)",
+      "problem_statement": "Given points (1, 5), (2, 11), and (3, 19), which quadratic function f(x) models this data?",
+      "algebra_trap": "Setting up a 3-variable system (a + b + c = 5, etc.) takes 3-4 minutes and is heavily error-prone.",
+      "desmos_cheat_code": "Add a table with x1 and y1. In the next line type: y1 ~ ax1^2 + bx1 + c. Desmos instantly calculates a = 1, b = 3, c = 1. Equation is f(x) = x^2 + 3x + 1.",
+      "desmos_equations": [
+        "table: x1=[1,2,3], y1=[5,11,19]",
+        "y1 ~ ax1^2 + bx1 + c"
+      ],
+      "pro_tip": "The tilde symbol (~) tells Desmos to run an instant regression. Works for linear (y1 ~ mx1 + b), quadratic, and exponential (y1 ~ a*b^x1)."
+    },
+    {
+      "module_id": 4,
+      "timestamp": "10:00",
+      "duration_seconds": 210,
+      "title": "Unknown Constant k: Infinite Solutions & No Solution",
+      "problem_statement": "For what value of k does the system 4x + 6y = 12 and 2x + ky = 7 have no solution?",
+      "algebra_trap": "Cross-multiplying coefficients or setting slopes equal can confuse students on whether intercepts match.",
+      "desmos_cheat_code": "Type line 1: 4x + 6y = 12. Type line 2: 2x + ky = 7. Click 'add slider k'. Slide k until the lines are perfectly parallel (slope matched at k = 3).",
+      "desmos_equations": [
+        "4x + 6y = 12",
+        "2x + ky = 7",
+        "k = 3"
+      ],
+      "pro_tip": "Parallel lines = No solution. Overlapping lines = Infinite solutions. The Desmos slider makes abstract constant problems purely visual."
+    },
+    {
+      "module_id": 5,
+      "timestamp": "13:30",
+      "duration_seconds": 180,
+      "title": "Circle Equations, Centers & Radii in 10 Seconds",
+      "problem_statement": "The equation of a circle is x^2 - 6x + y^2 + 8y = 24. What is the radius of the circle?",
+      "algebra_trap": "Completing the square twice (adding 9 and 16) is a classic trap where students drop negative signs.",
+      "desmos_cheat_code": "Type x^2 - 6x + y^2 + 8y = 24 into Desmos. Look at the circle. The center is at (3, -4). The rightmost point is (10, -4). Distance from 3 to 10 is 7. Radius = 7.",
+      "desmos_equations": [
+        "x^2 - 6x + y^2 + 8y = 24",
+        "center: (3, -4), radius: 7"
+      ],
+      "pro_tip": "Desmos graphs circles even in general form. No completing the square required on the Digital SAT."
+    },
+    {
+      "module_id": 6,
+      "timestamp": "16:30",
+      "duration_seconds": 180,
+      "title": "Systems of Inequalities & Shaded Feasible Regions",
+      "problem_statement": "Which of the following points (x, y) is in the solution set of y >= 2x - 3 and y < -x + 5? A) (0, 6) B) (2, 2) C) (4, 1) D) (-1, 8)",
+      "algebra_trap": "Plugging 4 answer choices into two inequalities takes 8 individual algebra evaluations.",
+      "desmos_cheat_code": "Type y >= 2x - 3 and y < -x + 5. Desmos shades the overlap in dark purple. Plot the 4 points. Only (2, 2) lies inside the shaded overlap and not on a dashed line.",
+      "desmos_equations": [
+        "y >= 2x - 3",
+        "y < -x + 5",
+        "Point (2, 2) strictly in feasible zone"
+      ],
+      "pro_tip": "Desmos automatically distinguishes solid lines (>=, <=) from dashed lines (>, <). Points on dashed boundary lines are never valid solutions."
+    },
+    {
+      "module_id": 7,
+      "timestamp": "19:30",
+      "duration_seconds": 180,
+      "title": "Function Notation f(x) and Function Transformations",
+      "problem_statement": "If f(x) = 3x^2 - 5x + 4, what is the value of f(a + 2) - f(a) when a = 3?",
+      "algebra_trap": "Expanding 3(a+2)^2 - 5(a+2) + 4 and subtracting f(a) algebraically takes 2 pages of scrap paper.",
+      "desmos_cheat_code": "Line 1: f(x) = 3x^2 - 5x + 4. Line 2: a = 3. Line 3: f(a + 2) - f(a). Desmos outputs the exact numeric answer 46 instantly.",
+      "desmos_equations": [
+        "f(x) = 3x^2 - 5x + 4",
+        "a = 3",
+        "f(a + 2) - f(a) = 46"
+      ],
+      "pro_tip": "Desmos supports full functional evaluation. You can define f(x), g(x), and evaluate nested expressions like f(g(2)) in 1 line."
+    },
+    {
+      "module_id": 8,
+      "timestamp": "22:30",
+      "duration_seconds": 180,
+      "title": "Exponential Growth, Decay & Percentage Multipliers",
+      "problem_statement": "A population of bacteria grows by 15% every 3 hours. If the initial count is 500, which equation models population P after t hours?",
+      "algebra_trap": "Confusing annual vs hourly growth and placing t/3 vs 3t in the exponent.",
+      "desmos_cheat_code": "Type target values for t = 3: P should be 500 * 1.15 = 575. Graph the 4 options: P = 500(1.15)^(t/3) passes through (3, 575). Instant match.",
+      "desmos_equations": [
+        "P(t) = 500 * (1.15)^(t/3)",
+        "Check point: (3, 575)"
+      ],
+      "pro_tip": "When in doubt on exponent models, plug in t = 0 and t = period, then visually check which graph hits the exact coordinates."
+    },
+    {
+      "module_id": 9,
+      "timestamp": "25:30",
+      "duration_seconds": 150,
+      "title": "SAT Statistics in 3 Clicks: Mean, Median & Box Plots",
+      "problem_statement": "Given the dataset: 14, 18, 22, 22, 25, 29, 31, 35, 42. What is the interquartile range (IQR)?",
+      "algebra_trap": "Ordering numbers manually, finding Q1 and Q3, and doing subtraction by hand leads to silly arithmetic misses.",
+      "desmos_cheat_code": "Line 1: L = [14, 18, 22, 22, 25, 29, 31, 35, 42]. Line 2: stats(L). Desmos prints Min, Q1, Median, Q3, Max in a clean table. IQR = Q3 - Q1 = 33 - 20 = 13 (or q3(L) - q1(L)).",
+      "desmos_equations": [
+        "L = [14, 18, 22, 22, 25, 29, 31, 35, 42]",
+        "stats(L)",
+        "q3(L) - q1(L)"
+      ],
+      "pro_tip": "Desmos has built-in statistical functions: mean(L), median(L), stdev(L), and boxplot(L). Never compute summary stats by hand."
+    },
+    {
+      "module_id": 10,
+      "timestamp": "28:00",
+      "duration_seconds": 120,
+      "title": "Hard Geometry & Trig on Desmos + 800-Score Checklist",
+      "problem_statement": "In right triangle ABC, angle C is 90 deg, and sin(A) = 5/13. What is cos(90 - A) and tan(B)?",
+      "algebra_trap": "Trying to memorize complementary angle identities under test anxiety.",
+      "desmos_cheat_code": "Switch Desmos to DEGREE mode (wrench icon). Line 1: A = arcsin(5/13). Line 2: cos(90 - A) = 0.3846 (equals 5/13). Line 3: B = 90 - A; tan(B) = 2.4 (12/5).",
+      "desmos_equations": [
+        "A = arcsin(5/13)",
+        "cos(90 - A)",
+        "B = 90 - A",
+        "tan(B)"
+      ],
+      "pro_tip": "Always ensure the Wrench settings match Degrees vs Radians. Desmos evaluates arcsin, arccos, and full right-triangle geometry."
+    }
+  ]
+}
