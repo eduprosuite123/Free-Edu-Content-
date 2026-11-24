@@ -7,55 +7,55 @@
   },
   {
     "index": 2,
-    "timestamp": "00:53",
+    "timestamp": "00:56",
     "title": "2. The Cursed Curve: y = x^x",
     "formula": "$y = x^x \\quad (x > 0)$"
   },
   {
     "index": 3,
-    "timestamp": "01:43",
+    "timestamp": "01:49",
     "title": "3. The Quadratic Laser Chirp: y = sin(x^2)",
     "formula": "$y = \\sin(x^2)$"
   },
   {
     "index": 4,
-    "timestamp": "02:33",
+    "timestamp": "02:42",
     "title": "4. The Infinite Barrier: y = tan(x)",
     "formula": "$y = \\tan(x)$"
   },
   {
     "index": 5,
-    "timestamp": "03:25",
+    "timestamp": "03:36",
     "title": "5. The Cardinal Sinc Wave: y = sin(x)/x",
     "formula": "$y = \\frac{\\sin(x)}{x} \\quad (\\mathrm{sinc})$"
   },
   {
     "index": 6,
-    "timestamp": "04:16",
+    "timestamp": "04:29",
     "title": "6. Topologist's Infinite Sine: y = sin(1/x)",
     "formula": "$y = \\sin(1/x) \\quad (x > 0)$"
   },
   {
     "index": 7,
-    "timestamp": "05:05",
+    "timestamp": "05:21",
     "title": "7. Riemann Zeta Critical Zeros: Re(s) = 1/2",
     "formula": "$\\zeta(\\frac{1}{2} + it) = 0$"
   },
   {
     "index": 8,
-    "timestamp": "05:56",
+    "timestamp": "06:13",
     "title": "8. The Razor Curve: y = tan(sin(x))",
     "formula": "$y = \\tan(\\sin(x))$"
   },
   {
     "index": 9,
-    "timestamp": "06:45",
+    "timestamp": "07:05",
     "title": "9. The Golden Logarithmic Spiral: r = e^(0.15*theta)",
     "formula": "$r(\\theta) = e^{0.15 \\theta}$"
   },
   {
     "index": 10,
-    "timestamp": "07:34",
+    "timestamp": "07:56",
     "title": "10. Fourier Square Wave Synthesis (7 Harmonics)",
     "formula": "$\\sum_{k=1}^7 \\frac{\\sin((2k-1)x)}{2k-1}$"
   }
