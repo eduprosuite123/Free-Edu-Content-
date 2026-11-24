@@ -1,8 +1,8 @@
 {
-  "last_completed_episode": 1,
-  "last_id": "ep001_spinning_donut_torus",
-  "last_title": "I Built a Spinning 3D Donut in Desmos Using Pure Calculus & Linear Algebra",
-  "next_episode_number": 2,
-  "next_episode_index": 1,
-  "next_episode_title": "Graphing a 3D Wireframe Sphere from Scratch in Desmos"
+  "last_completed_episode": 2,
+  "last_id": "ep002_3d_wireframe_sphere",
+  "last_title": "Graphing a 3D Wireframe Sphere from Scratch in Desmos",
+  "next_episode_number": 3,
+  "next_episode_index": 2,
+  "next_episode_title": "The One-Sided Wonder: Graphing a 3D M\u00f6bius Strip in Desmos"
 }
