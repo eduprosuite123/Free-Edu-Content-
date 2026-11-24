@@ -5,5 +5,12 @@
     "platform": "YouTube",
     "type": "Shorts",
     "mode": "dry_run"
+  },
+  {
+    "timestamp_utc": "2026-11-24T13:51:28.844126+00:00",
+    "slot_id": "bluesky_1",
+    "platform": "Bluesky",
+    "type": "Discussion Post",
+    "mode": "live"
   }
 ]

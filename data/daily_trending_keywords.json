@@ -1,5 +1,5 @@
 {
-  "last_updated_utc": "2026-11-24T07:25:39.377916+00:00",
+  "last_updated_utc": "2026-11-24T13:50:07.877584+00:00",
   "niche_count": 6,
   "products": {
     "electrical": {
@@ -29,9 +29,9 @@
         "conduit bending calculations",
         "electrician apprenticeship test study guide",
         "electrician apprenticeship aptitude test",
+        "electrician apprenticeship aptitude test study guide",
         "electrical apprenticeship assessment test",
-        "electrician apprenticeship test prep",
-        "electrician apprenticeship aptitude test study guide"
+        "electrician apprenticeship test prep"
       ],
       "top_hook": "Master Electrician Exam Prep 2026"
     },
@@ -51,10 +51,6 @@
       ],
       "youtube_queries": [
         "master plumber exam study guide philippines",
-        "journeyman plumber test prep",
-        "journeyman plumber practice exam",
-        "plumbing journeyman test prep",
-        "journeyman plumbing test questions",
         "plumbing 45 degree offset",
         "upc number check digit",
         "upc code problem",
@@ -79,9 +75,10 @@
         "epa 608 universal practice test",
         "epa certification test answers",
         "epa 608 type 2 practice test",
+        "epa 608 exam practice questions 1-100",
         "hvac vacuum micron gauge",
-        "hvac vacuum pump oil",
         "hvac vacuum pump maintenance",
+        "hvac vacuum pump oil",
         "epa 608 core test answers",
         "epa core test answers",
         "epa 608 exam practice questions",
@@ -110,7 +107,7 @@
       ],
       "youtube_queries": [
         "ap calculus fundamental theorem of calculus",
-        "calculus fundamental theorem of calculus"
+        "ap calc ab fundamental theorem of calculus"
       ],
       "top_hook": "Ap Calculus Ab Review Sheet Pdf"
     },
@@ -128,7 +125,6 @@
         "ap stats formula sheet given"
       ],
       "youtube_queries": [
-        "ap stats normal cdf",
         "ap stats formula sheet",
         "how to use the ap stats formula sheet",
         "ap stats formula sheet review",
@@ -155,7 +151,7 @@
         "programmatic seo case study",
         "sitemap google search console",
         "sitemap url google search console",
-        "submitting sitemap to google search console"
+        "submit a sitemap to google search console"
       ],
       "top_hook": "Self Service Programmatic"
     }
