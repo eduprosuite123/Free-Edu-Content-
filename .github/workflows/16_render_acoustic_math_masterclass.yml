@@ -1,6 +1,9 @@
 name: 16 Acoustic Math 1080p Video Masterclass Engine
 
 on:
+  schedule:
+    # Daily automated schedule at 14:00 UTC (10:00 AM EST / 3:00 PM GMT / 7:30 PM IST - Peak Long-Form Publishing Window)
+    - cron: '0 14 * * *'
   workflow_dispatch:
     inputs:
       render_mode:
@@ -64,29 +67,32 @@ jobs:
 
       - name: Execute Headless Acoustic Mathematics Video Renderer
         run: |
-          echo "[+] Starting 1080p Masterclass Rendering (Mode: ${{ github.event.inputs.render_mode }}, FPS: ${{ github.event.inputs.fps }})..."
-          python scripts/render_acoustic_math_masterclass.py --mode ${{ github.event.inputs.render_mode }} --fps ${{ github.event.inputs.fps }}
+          RENDER_MODE="${{ github.event.inputs.render_mode || 'full' }}"
+          RENDER_FPS="${{ github.event.inputs.fps || '24' }}"
+          echo "[+] Starting 1080p Masterclass Rendering (Mode: $RENDER_MODE, FPS: $RENDER_FPS)..."
+          python scripts/render_acoustic_math_masterclass.py --mode "$RENDER_MODE" --fps "$RENDER_FPS"
 
       - name: Upload Masterclass MP4 as Workflow Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Acoustic_Math_Masterclass_${{ github.event.inputs.render_mode }}
+          name: Acoustic_Math_Masterclass_Output
           path: output/*.mp4
           retention-days: 14
 
       - name: Publish to YouTube with 100% SEO Metadata
-        if: ${{ github.event.inputs.upload_to_youtube == 'true' || github.event.inputs.upload_to_youtube == true }}
+        if: ${{ github.event_name == 'schedule' || github.event.inputs.upload_to_youtube == 'true' || github.event.inputs.upload_to_youtube == true }}
         env:
           YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
-          echo "[+] Publishing 1080p Masterclass to YouTube with 100% SEO Meta (Privacy: ${{ github.event.inputs.privacy_status }})..."
-          python scripts/upload_acoustic_math_to_youtube.py ${{ github.event.inputs.privacy_status }}
+          PRIVACY="${{ github.event.inputs.privacy_status || 'public' }}"
+          echo "[+] Publishing 1080p Masterclass to YouTube with 100% SEO Meta (Privacy: $PRIVACY)..."
+          python scripts/upload_acoustic_math_to_youtube.py "$PRIVACY"
 
       - name: Commit Upload Receipts
-        if: ${{ github.event.inputs.upload_to_youtube == 'true' || github.event.inputs.upload_to_youtube == true }}
+        if: ${{ github.event_name == 'schedule' || github.event.inputs.upload_to_youtube == 'true' || github.event.inputs.upload_to_youtube == true }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
