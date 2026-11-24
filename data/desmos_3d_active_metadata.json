@@ -1,0 +1,19 @@
+{
+  "episode_number": 1,
+  "id": "ep001_spinning_donut_torus",
+  "title": "I Built a Spinning 3D Donut in Desmos Using Pure Calculus & Linear Algebra",
+  "short_title": "Spinning 3D Donut in Desmos #Shorts",
+  "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/desmos_3d_episode_001_ep001_spinning_donut_torus.mp4",
+  "description": "I Built a Spinning 3D Donut in Desmos Using Pure Calculus & Linear Algebra\n\nIn this Desmos 3D Masterclass, we construct a fully interactive three-dimensional rotating torus (donut) inside the Desmos Graphing Calculator using pure multivariable calculus and linear algebra.\n\n\ud83d\udcd0 Mathematical Architecture:\n- Parametric Torus Coordinates:\n  X = (R + r*cos(u)) * cos(v)\n  Y = r*sin(u)\n  Z = (R + r*cos(u)) * sin(v)\n- 3D Euler Rotation Matrices around X and Z axes\n- Perspective Camera Projection: (K1*X' / (Z' + K2), K1*Y' / (Z' + K2))\n\n\ud83d\udc49 Open & Explore Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Desmos #Desmos3D #Calculus #LinearAlgebra #Mathematics #STEM #ComputerGraphics #Donut #MathVisualizer",
+  "tags": [
+    "desmos 3d",
+    "desmos donut",
+    "spinning donut",
+    "linear algebra desmos",
+    "calculus in desmos",
+    "perspective projection",
+    "math visualizer",
+    "3d graphics engine"
+  ],
+  "duration": 39.324898
+}
