@@ -180,7 +180,6 @@ def synthesize_equation_audio(spec: dict, wav_path: Path, sample_rate: int = 441
     """
     duration = spec["duration_sec"]
     total_samples = int(duration * sample_rate)
-    t = np.linspace(0, duration, total_samples)
     
     # Evaluate equation
     x_min, x_max = spec["x_range"]
@@ -221,7 +220,7 @@ def synthesize_equation_audio(spec: dict, wav_path: Path, sample_rate: int = 441
     wavfile.write(str(wav_path), sample_rate, stereo_int16)
 
 def render_equation_frames(spec: dict, frames_dir: Path, fps: int = 30):
-    """Renders 1080p frames with 3Blue1Brown/Desmos aesthetic and live tracing dot."""
+    """Renders exact constant 1920x1080 frames with 3Blue1Brown/Desmos aesthetic."""
     frames_dir.mkdir(parents=True, exist_ok=True)
     duration = spec["duration_sec"]
     total_frames = int(duration * fps)
@@ -249,11 +248,12 @@ def render_equation_frames(spec: dict, frames_dir: Path, fps: int = 30):
         if not np.isfinite(current_y):
             current_y = 0.0
             
-        fig = plt.figure(figsize=(16, 9), dpi=120)
+        # Fixed exact dimensions: 19.2 x 10.8 inches at 100 DPI = exactly 1920x1080
+        fig = plt.figure(figsize=(19.2, 10.8), dpi=100)
         fig.patch.set_facecolor(BG_COLOR)
         
         # Grid layout: Main Graph (top 75%), Audio Spectrum Scope (bottom 25%)
-        gs = fig.add_gridspec(2, 1, height_ratios=[3.5, 1.0], hspace=0.28)
+        gs = fig.add_gridspec(2, 1, height_ratios=[3.5, 1.0], hspace=0.28, left=0.08, right=0.95, top=0.92, bottom=0.08)
         
         # Main Math Graph Axis
         ax_main = fig.add_subplot(gs[0])
@@ -301,10 +301,10 @@ def render_equation_frames(spec: dict, frames_dir: Path, fps: int = 30):
             spine.set_color("#1e293b")
             
         frame_path = frames_dir / f"frame_{i:05d}.png"
-        plt.savefig(frame_path, facecolor=BG_COLOR, bbox_inches="tight")
+        fig.savefig(frame_path, facecolor=BG_COLOR, dpi=100)
         plt.close(fig)
 
-def build_single_equation_video(spec: dict, output_video: Path, fps: int = 30):
+def build_single_equation_video(spec: dict, output_video: Path, fps: int = 24):
     """Renders visuals and muxes with synthesized speech and sonification audio."""
     eq_id = spec["id"]
     work_dir = TEMP_DIR / eq_id
@@ -314,7 +314,6 @@ def build_single_equation_video(spec: dict, output_video: Path, fps: int = 30):
     speech_mp3 = work_dir / "speech.mp3"
     sonif_wav = work_dir / "sonification.wav"
     combined_audio = work_dir / "combined_audio.wav"
-    raw_video = work_dir / "raw_video.mp4"
     
     print(f"\n[*] Processing: {spec['title']}")
     
@@ -342,23 +341,25 @@ def build_single_equation_video(spec: dict, output_video: Path, fps: int = 30):
     print("  [4/4] Rendering 1080p Graph Tracing Frames & Muxing Video...")
     render_equation_frames(spec, frames_dir, fps=fps)
     
-    # Measure total audio duration
-    ffprobe_cmd = ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", str(combined_audio)]
-    total_audio_duration = float(subprocess.check_output(ffprobe_cmd).strip())
-    
     cmd_mux = [
         "ffmpeg", "-y",
         "-framerate", str(fps),
         "-i", str(frames_dir / "frame_%05d.png"),
         "-i", str(combined_audio),
+        "-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,format=yuv420p",
         "-c:v", "libx264",
-        "-pix_fmt", "yuv420p",
+        "-preset", "veryfast",
+        "-crf", "22",
         "-c:a", "aac",
         "-b:a", "192k",
         "-shortest",
         str(output_video)
     ]
-    subprocess.run(cmd_mux, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    mux_res = subprocess.run(cmd_mux, capture_output=True, text=True)
+    if mux_res.returncode != 0:
+        print(f"  [ERROR] FFmpeg Muxing failed:\n{mux_res.stderr}")
+        sys.exit(1)
+        
     print(f"  [SUCCESS] Rendered segment: {output_video.name}")
 
 def main():
