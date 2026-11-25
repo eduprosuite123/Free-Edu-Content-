@@ -145,5 +145,12 @@
     "platform": "Bluesky",
     "type": "Resource Link",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-25T21:27:26.387967+00:00",
+    "slot_id": "ig_reel",
+    "platform": "Instagram",
+    "type": "Reel",
+    "mode": "live"
   }
 ]
