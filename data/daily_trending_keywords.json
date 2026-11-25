@@ -1,5 +1,5 @@
 {
-  "last_updated_utc": "2026-11-25T16:38:20.270405+00:00",
+  "last_updated_utc": "2026-11-25T17:39:35.208897+00:00",
   "niche_count": 6,
   "products": {
     "electrical": {
@@ -19,9 +19,9 @@
       "youtube_queries": [
         "journeyman electrician exam prep 2026",
         "master electrician exam prep 2026",
+        "journeyman electrician exam prep 2023",
+        "journeyman electrician exam 2023",
         "journeyman electrician exam prep",
-        "journeyman electrician exam prep 2020",
-        "journeyman electrician exam",
         "nec box fill calculations",
         "nec conduit fill calculations",
         "box fill calculations mike holt",
@@ -29,8 +29,8 @@
         "conduit bending calculations",
         "electrician apprenticeship test study guide",
         "electrician apprenticeship aptitude test",
-        "electrician apprenticeship aptitude test study guide",
         "electrical apprenticeship assessment test",
+        "electrician apprenticeship aptitude test study guide",
         "electrician apprenticeship test prep"
       ],
       "top_hook": "Master Electrician Exam Prep 2026"
@@ -78,11 +78,10 @@
       "youtube_queries": [
         "epa 608 universal practice test",
         "epa certification test answers",
-        "epa 608 type 2 practice test",
         "epa 608 exam practice questions 1-100",
         "hvac vacuum micron gauge",
-        "hvac vacuum pump maintenance",
         "hvac vacuum pump oil",
+        "hvac vacuum pump maintenance",
         "epa 608 core test answers",
         "epa core test answers",
         "epa 608 exam practice questions",
@@ -148,14 +147,11 @@
         "self hosted segment"
       ],
       "youtube_queries": [
-        "programmatic seo tutorial",
-        "programmatic seo webflow",
-        "programmatic seo wordpress",
         "programmatic seo with ai",
         "programmatic seo case study",
         "sitemap google search console",
-        "sitemap url google search console",
-        "submitting sitemap to google search console"
+        "submitting sitemap to google search console",
+        "sitemap url google search console"
       ],
       "top_hook": "Self Service Programmatic"
     }
