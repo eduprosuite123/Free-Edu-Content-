@@ -1,20 +1,20 @@
 {
-  "episode_number": 3,
-  "id": "ep003_mobius_strip_3d",
-  "title": "The One-Sided Wonder: Graphing a 3D M\u00f6bius Strip in Desmos",
-  "short_title": "3D M\u00f6bius Strip in Desmos #Shorts",
-  "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/desmos_3d_episode_003_ep003_mobius_strip_3d.mp4",
-  "description": "The One-Sided Wonder: Graphing a 3D M\u00f6bius Strip in Desmos\n\nIn this Desmos 3D Masterclass, we explore 3D Wireframe & Mesh Engines using pure multivariable calculus and linear algebra inside the Desmos Graphing Calculator.\n\n\ud83d\udcd0 Mathematical Architecture:\n- Core Formula: X = \\left(1 + \\frac{v}{2}\\cos\\frac{u}{2}\\right)\\cos u, \\quad Y = \\left(1 + \\frac{v}{2}\\cos\\frac{u}{2}\\right)\\sin u, \\quad Z = \\frac{v}{2}\\sin\\frac{u}{2}\n- Concepts: Non-Orientable Topology, Half-Twist Boundary, Surface Parametrization\n- Pedagogical Lesson: The M\u00f6bius strip is a non-orientable surface with only one boundary and one continuous side. The factor of u/2 in the coordinate equations creates the characteristic half-twist over a complete 2pi revolution.\n\n\ud83d\udc49 Open & Explore Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Desmos #Desmos3D #Calculus #LinearAlgebra #Mathematics #STEM #ComputerGraphics #MathVisualizer",
+  "episode_number": 4,
+  "id": "ep004_trefoil_knot_3d",
+  "title": "Knots in 3D: Graphing the Over-Under Trefoil Knot in Desmos",
+  "short_title": "Trefoil Knot in Desmos #Shorts",
+  "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/desmos_3d_episode_004_ep004_trefoil_knot_3d.mp4",
+  "description": "Knots in 3D: Graphing the Over-Under Trefoil Knot in Desmos\n\nIn this Desmos 3D Masterclass, we explore 3D Wireframe & Mesh Engines using pure multivariable calculus and linear algebra inside the Desmos Graphing Calculator.\n\n\ud83d\udcd0 Mathematical Architecture:\n- Core Formula: x = \\sin t + 2\\sin 2t, \\quad y = \\cos t - 2\\cos 2t, \\quad z = -\\sin 3t\n- Concepts: Knot Theory, Torus Knots (2,3), Space Curves\n- Pedagogical Lesson: The trefoil knot is the simplest non-trivial knot, classified as a (2,3)-torus knot. It wraps around a torus twice in one direction and three times in the other without intersecting itself.\n\n\ud83d\udc49 Open & Explore Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Desmos #Desmos3D #Calculus #LinearAlgebra #Mathematics #STEM #ComputerGraphics #MathVisualizer",
   "tags": [
-    "3d math",
-    "differential geometry",
-    "desmos 3d",
     "desmos math",
-    "stem education",
     "calculus visualizer",
-    "mobius strip",
-    "topology desmos",
-    "non orientable surface"
+    "desmos 3d",
+    "stem education",
+    "space curves",
+    "knot theory",
+    "desmos 3d curve",
+    "calculus 3",
+    "trefoil knot"
   ],
   "duration": 35.0
 }
