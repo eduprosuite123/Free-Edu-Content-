@@ -124,5 +124,12 @@
     "platform": "Pinterest",
     "type": "Video Pin",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-25T18:10:49.445609+00:00",
+    "slot_id": "threads_midday",
+    "platform": "Threads",
+    "type": "Discussion Question",
+    "mode": "live"
   }
 ]
