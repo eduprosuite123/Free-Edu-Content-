@@ -103,5 +103,12 @@
     "platform": "Bluesky",
     "type": "Discussion Post",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-25T14:44:56.461813+00:00",
+    "slot_id": "ig_carousel",
+    "platform": "Instagram",
+    "type": "Carousel",
+    "mode": "live"
   }
 ]
