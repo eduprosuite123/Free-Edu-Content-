@@ -1,5 +1,5 @@
 {
-  "last_updated_utc": "2026-11-24T23:45:57.800996+00:00",
+  "last_updated_utc": "2026-11-25T00:11:52.752460+00:00",
   "niche_count": 6,
   "products": {
     "electrical": {
@@ -23,8 +23,6 @@
         "journeyman electrician exam 2023",
         "journeyman electrician exam prep",
         "nec box fill calculations",
-        "box fill calculations mike holt",
-        "nec conduit fill calculations",
         "conduit bending formulas",
         "conduit bending calculations",
         "electrician apprenticeship test study guide",
@@ -58,6 +56,7 @@
         "plumbing 45 degree offset",
         "upc number check digit",
         "upc code problem",
+        "upc code without sms",
         "upc code"
       ],
       "top_hook": "Master Plumber Exam Study Guide"
@@ -149,8 +148,6 @@
         "programmatic seo webflow",
         "programmatic seo tutorial",
         "programmatic seo wordpress",
-        "programmatic seo with ai",
-        "programmatic seo case study",
         "sitemap google search console",
         "sitemap url google search console",
         "submit a sitemap to google search console"
