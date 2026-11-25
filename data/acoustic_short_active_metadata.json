@@ -1,21 +1,20 @@
 {
-  "title": "Calculus Secret of The Cursed Curve y = x^x (Desmos Sound) \ud83c\udfa7",
-  "short_title": "Calculus of y = x^x (Desmos Sound) #Shorts",
+  "title": "What The Quadratic Laser Chirp y = sin(x\u00b2) Sounds Like \ud83c\udfa7",
+  "short_title": "The Quadratic Chirp y = sin(x\u00b2) #Shorts",
   "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/acoustic_math_short.mp4",
   "video_path": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/acoustic_math_short.mp4",
-  "description": "CALCULUS SECRET OF - The Cursed Curve: y = x^x\nCalculus: Local Min at x = 1/e \u2248 0.368\n\nIn calculus, taking the derivative of y = x^x yields y' = x^x(1 + ln(x)). Setting y' = 0 reveals an unexpected local minimum at x = 1/e \u2248 0.368, y \u2248 0.692.\n\nUsing Desmos audio sonification, vertical Y values map directly to audio frequency pitch. As x glides from 0 to 3.2, you can distinctly hear the pitch dip to its lowest point at x = 1/e before rocketing exponentially into high frequencies!\n\n\ud83c\udfa7 Full 10-Equation Masterclass (Watch Here):\nhttps://youtu.be/eUna7yEAdYc\n\nDownload Formula Sheets & Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Shorts #Calculus #Mathematics #APCalculus #Desmos #AcousticMath #Science #STEM #AudioTrace",
+  "description": "WHY DOES y = sin(x\u00b2) - The Laser Chirp: y = sin(x\u00b2)\nPhase Derivative d/dx(x\u00b2) = 2x (Accelerating)\n\nIn calculus, taking the derivative of y = x^x yields y' = x^x(1 + ln(x)). Setting y' = 0 reveals an unexpected local minimum at x = 1/e \u2248 0.368, y \u2248 0.692.\n\nUsing Desmos audio sonification, vertical Y values map directly to audio frequency pitch. As x glides from 0 to 3.2, you can distinctly hear the pitch dip to its lowest point at x = 1/e before rocketing exponentially into high frequencies!\n\n\ud83c\udfa7 Full 10-Equation Masterclass (Watch Here):\nhttps://youtu.be/eUna7yEAdYc\n\nDownload Formula Sheets & Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Shorts #Calculus #Mathematics #APCalculus #Desmos #AcousticMath #Science #STEM #AudioTrace",
   "tags": [
     "math sounds",
     "desmos sound",
-    "calculus",
-    "what math sounds like",
     "equation sonification",
+    "laser sound",
     "shorts",
-    "ap calculus",
+    "math visualizer",
     "Shorts",
     "Acoustic Math",
     "STEM",
     "Calculus"
   ],
-  "duration": 47.393991
+  "duration": 42.926984
 }
