@@ -1,20 +1,20 @@
 {
-  "title": "What The Million-Dollar Riemann Hypothesis Zeros Sound Like \ud83c\udfa7",
-  "short_title": "Riemann Hypothesis Zeros Sound #Shorts",
+  "title": "When A Math Function Hits Infinity: y = tan(x) \ud83c\udfa7",
+  "short_title": "The Infinite Barrier y = tan(x) #Shorts",
   "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/acoustic_math_short.mp4",
   "video_path": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/acoustic_math_short.mp4",
-  "description": "MILLION-DOLLAR MATH: - Riemann Zeta Critical Line\nCritical Line: Re(s) = 1/2 (Prime Harmonics)\n\nIn calculus, taking the derivative of y = x^x yields y' = x^x(1 + ln(x)). Setting y' = 0 reveals an unexpected local minimum at x = 1/e \u2248 0.368, y \u2248 0.692.\n\nUsing Desmos audio sonification, vertical Y values map directly to audio frequency pitch. As x glides from 0 to 3.2, you can distinctly hear the pitch dip to its lowest point at x = 1/e before rocketing exponentially into high frequencies!\n\n\ud83c\udfa7 Full 10-Equation Masterclass (Watch Here):\nhttps://youtu.be/eUna7yEAdYc\n\nDownload Formula Sheets & Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Shorts #Calculus #Mathematics #APCalculus #Desmos #AcousticMath #Science #STEM #AudioTrace",
+  "description": "WHEN A FUNCTION HITS - The Infinite Barrier: y = tan(x)\nAsymptotes at x = \u00b1\u03c0/2 (Singularity)\n\nIn calculus, taking the derivative of y = x^x yields y' = x^x(1 + ln(x)). Setting y' = 0 reveals an unexpected local minimum at x = 1/e \u2248 0.368, y \u2248 0.692.\n\nUsing Desmos audio sonification, vertical Y values map directly to audio frequency pitch. As x glides from 0 to 3.2, you can distinctly hear the pitch dip to its lowest point at x = 1/e before rocketing exponentially into high frequencies!\n\n\ud83c\udfa7 Full 10-Equation Masterclass (Watch Here):\nhttps://youtu.be/eUna7yEAdYc\n\nDownload Formula Sheets & Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Shorts #Calculus #Mathematics #APCalculus #Desmos #AcousticMath #Science #STEM #AudioTrace",
   "tags": [
-    "riemann hypothesis",
     "math sounds",
     "desmos sound",
-    "prime numbers",
+    "tangent curve",
+    "infinity",
     "shorts",
-    "stem",
+    "calculus",
     "Shorts",
     "Acoustic Math",
     "STEM",
     "Calculus"
   ],
-  "duration": 41.672993
+  "duration": 40.262993
 }
