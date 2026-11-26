@@ -1,5 +1,5 @@
 {
-  "last_updated_utc": "2026-11-26T22:47:08.412867+00:00",
+  "last_updated_utc": "2026-11-26T23:26:05.749167+00:00",
   "niche_count": 6,
   "products": {
     "electrical": {
@@ -130,7 +130,10 @@
       ],
       "youtube_queries": [
         "ap stats normal cdf",
-        "ap stats formula sheet"
+        "ap stats formula sheet",
+        "stats hypothesis testing (p-value method)",
+        "ap stats hypothesis testing review",
+        "ap stats hypothesis testing"
       ],
       "top_hook": "Ap Stats Normalcdf"
     },
