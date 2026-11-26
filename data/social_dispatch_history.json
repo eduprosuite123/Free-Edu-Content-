@@ -271,5 +271,12 @@
     "platform": "YouTube",
     "type": "Shorts",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-26T23:53:16.956031+00:00",
+    "slot_id": "youtube_shorts",
+    "platform": "YouTube",
+    "type": "Shorts",
+    "mode": "live"
   }
 ]
