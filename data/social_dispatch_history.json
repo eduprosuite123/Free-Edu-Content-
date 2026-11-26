@@ -257,5 +257,12 @@
     "platform": "Instagram",
     "type": "Reel",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-26T22:47:29.854549+00:00",
+    "slot_id": "fb_reel_2",
+    "platform": "Facebook",
+    "type": "Reel",
+    "mode": "live"
   }
 ]
