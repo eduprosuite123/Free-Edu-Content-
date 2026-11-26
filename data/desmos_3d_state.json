@@ -1,8 +1,8 @@
 {
-  "last_completed_episode": 4,
-  "last_id": "ep004_trefoil_knot_3d",
-  "last_title": "Knots in 3D: Graphing the Over-Under Trefoil Knot in Desmos",
-  "next_episode_number": 5,
-  "next_episode_index": 4,
-  "next_episode_title": "I Built an Interactive 3D Wireframe Cube with Sliders in Desmos"
+  "last_completed_episode": 5,
+  "last_id": "ep005_spinning_cube_wireframe",
+  "last_title": "I Built an Interactive 3D Wireframe Cube with Sliders in Desmos",
+  "next_episode_number": 6,
+  "next_episode_index": 5,
+  "next_episode_title": "The Infinite Saddle: Enneper's Minimal Surface in Desmos"
 }
