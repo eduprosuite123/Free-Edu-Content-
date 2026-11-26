@@ -1,5 +1,5 @@
 {
-  "last_updated_utc": "2026-11-26T02:19:23.828756+00:00",
+  "last_updated_utc": "2026-11-26T13:52:32.635805+00:00",
   "niche_count": 6,
   "products": {
     "electrical": {
@@ -29,8 +29,8 @@
         "conduit bending calculations",
         "electrician apprenticeship test study guide",
         "electrician apprenticeship aptitude test",
-        "electrical apprenticeship assessment test",
         "electrician apprenticeship aptitude test study guide",
+        "electrical apprenticeship assessment test",
         "electrician apprenticeship test prep"
       ],
       "top_hook": "Master Electrician Exam Prep 2026"
@@ -56,8 +56,8 @@
         "plumbing journeyman test prep",
         "journeyman plumbing test questions",
         "plumbing 45 degree offset",
-        "upc number check digit",
         "upc code problem",
+        "upc number check digit",
         "upc code without sms",
         "upc code"
       ],
@@ -78,13 +78,14 @@
       "youtube_queries": [
         "epa 608 universal practice test",
         "epa certification test answers",
+        "epa 608 type 2 practice test",
         "epa 608 exam practice questions 1-100",
-        "epa 608 exam practice questions",
         "hvac vacuum micron gauge",
-        "hvac vacuum pump oil",
         "hvac vacuum pump maintenance",
+        "hvac vacuum pump oil",
         "epa 608 core test answers",
         "epa core test answers",
+        "epa 608 exam practice questions",
         "epa 608 type 1 test answers"
       ],
       "top_hook": "Epa 608 Universal Practice Test Pdf"
@@ -129,9 +130,6 @@
       ],
       "youtube_queries": [
         "ap stats formula sheet",
-        "how to use the ap stats formula sheet",
-        "ap stats formula sheet review",
-        "ap stats formula sheet explained",
         "stats hypothesis testing (p-value method)",
         "ap stats hypothesis testing review",
         "ap stats hypothesis testing"
@@ -147,14 +145,14 @@
         "self hosted segment"
       ],
       "youtube_queries": [
-        "programmatic seo webflow",
         "programmatic seo tutorial",
         "programmatic seo wordpress",
+        "programmatic seo webflow",
         "programmatic seo with ai",
         "programmatic seo case study",
         "sitemap google search console",
-        "submitting sitemap to google search console",
-        "sitemap url google search console"
+        "sitemap url google search console",
+        "submit a sitemap to google search console"
       ],
       "top_hook": "Self Service Programmatic"
     }
