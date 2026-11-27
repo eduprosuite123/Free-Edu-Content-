@@ -327,5 +327,12 @@
     "platform": "Facebook",
     "type": "Link Post",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-27T17:45:22.838810+00:00",
+    "slot_id": "pinterest_video",
+    "platform": "Pinterest",
+    "type": "Video Pin",
+    "mode": "live"
   }
 ]
