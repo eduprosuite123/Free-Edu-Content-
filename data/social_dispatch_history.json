@@ -320,5 +320,12 @@
     "platform": "Instagram",
     "type": "Carousel",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-27T16:35:21.482458+00:00",
+    "slot_id": "fb_link_post",
+    "platform": "Facebook",
+    "type": "Link Post",
+    "mode": "live"
   }
 ]
