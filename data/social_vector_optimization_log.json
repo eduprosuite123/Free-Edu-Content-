@@ -1,30 +1,30 @@
 {
   "status": "PASS (100% విధానం 1 Aligned)",
-  "timestamp": "2026-11-27T14:17:24.325015+00:00",
-  "active_niche": "plumbing",
+  "timestamp": "2026-11-27T14:33:50.368665+00:00",
+  "active_niche": "electrical",
   "meta_reels": {
     "platform": "Meta (Facebook Reels & Instagram Reels)",
     "formula": "విధానం 1: Auto-Suggestions + OCR + Optimized Description",
-    "niche": "plumbing",
-    "first_125_chars_hook": "⚡ Master Plumber Exam Study Guide Philippines Made Simple:",
-    "ocr_overlay_text_2s": "DWV PIPE SIZING & 1/4 INCH SLOPE FORMULA",
-    "caption": "⚡ Master Plumber Exam Study Guide Philippines Made Simple:\nMaster Drain Waste Vent (DWV) Sizing. Comment 'PLUMBER' for free DWV sizing cheat sheet!\n🔗 Guide: https://eduprosuite.pro/mock-test-plumber.html\n#PlumberExam #JourneymanPlumber #UPCCode #PlumbingMath",
-    "caption_length": 258,
+    "niche": "electrical",
+    "first_125_chars_hook": "⚡ Nec Box Fill Calculations Made Simple:",
+    "ocr_overlay_text_2s": "NEC BOX FILL FORMULA | 2026 EDITION",
+    "caption": "⚡ Nec Box Fill Calculations Made Simple:\nMaster NEC Table 314.16(A). Comment 'NEC' for free 1-Page Formula Cheat Sheet PDF!\n🔗 Guide: https://eduprosuite.pro/electrician-exam.html\n#JourneymanElectrician #NECCode #TradeMath #ElectricianApprentice",
+    "caption_length": 244,
     "is_length_compliant_150_300": true,
     "hashtags_count": 4,
-    "destination_url": "https://eduprosuite.pro/mock-test-plumber.html"
+    "destination_url": "https://eduprosuite.pro/electrician-exam.html"
   },
   "youtube_shorts": {
     "platform": "YouTube Shorts",
     "formula": "విధానం 1: Auto-Suggestions + OCR + Optimized Description",
-    "niche": "plumbing",
-    "title": "Master Plumber Exam Study Guide Philippines in 30 Seconds",
-    "title_length": 57,
+    "niche": "electrical",
+    "title": "Journeyman Electrician Exam Prep 2026 in 30 Seconds",
+    "title_length": 51,
     "is_title_compliant_under_60": true,
-    "ocr_overlay_text_2s": "DWV PIPE SIZING & 1/4 INCH SLOPE FORMULA",
-    "description_first_150_chars": "Master master plumber exam study guide philippines with this quick breakdown. Solve exam questions faster with Drain Waste Vent (DWV) Sizing rules.",
-    "full_description": "Master master plumber exam study guide philippines with this quick breakdown. Solve exam questions faster with Drain Waste Vent (DWV) Sizing rules.\n\n👉 Download full exam study guide and formula sheet:\nhttps://eduprosuite.pro/mock-test-plumber.html\n\n#Shorts #PlumbingExam #JourneymanPlumber #UPCCode",
+    "ocr_overlay_text_2s": "NEC BOX FILL FORMULA | 2026 EDITION",
+    "description_first_150_chars": "Master journeyman electrician exam prep 2026 with this quick breakdown. Solve exam questions faster with NEC Table 314.16(A) rules.",
+    "full_description": "Master journeyman electrician exam prep 2026 with this quick breakdown. Solve exam questions faster with NEC Table 314.16(A) rules.\n\n👉 Download full exam study guide and formula sheet:\nhttps://eduprosuite.pro/electrician-exam.html\n\n#Shorts #JourneymanElectrician #NECCode #ElectricianExam",
     "hashtags_count": 4,
-    "destination_url": "https://eduprosuite.pro/mock-test-plumber.html"
+    "destination_url": "https://eduprosuite.pro/electrician-exam.html"
   }
 }
