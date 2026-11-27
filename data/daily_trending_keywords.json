@@ -1,5 +1,5 @@
 {
-  "last_updated_utc": "2026-11-27T17:44:59.397912+00:00",
+  "last_updated_utc": "2026-11-27T18:14:57.375472+00:00",
   "niche_count": 6,
   "products": {
     "electrical": {
@@ -56,8 +56,8 @@
         "plumbing journeyman test prep",
         "journeyman plumbing test questions",
         "plumbing 45 degree offset",
-        "upc number check digit",
         "upc code problem",
+        "upc number check digit",
         "upc code without sms",
         "upc code"
       ],
@@ -79,7 +79,7 @@
         "epa 608 universal practice test",
         "epa certification test answers",
         "epa 608 type 2 practice test",
-        "epa 608 certification test answers",
+        "epa 608 exam practice questions 1-100",
         "hvac vacuum micron gauge",
         "hvac vacuum pump maintenance",
         "hvac vacuum pump oil",
@@ -129,7 +129,6 @@
         "ap stats formula sheet given"
       ],
       "youtube_queries": [
-        "ap stats normal cdf",
         "ap stats formula sheet",
         "stats hypothesis testing (p-value method)",
         "ap stats hypothesis testing review",
@@ -147,6 +146,7 @@
       ],
       "youtube_queries": [
         "programmatic seo tutorial",
+        "programmatic seo webflow",
         "programmatic seo wordpress",
         "programmatic seo with ai",
         "programmatic seo case study",
