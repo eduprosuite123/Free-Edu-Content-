@@ -1,17 +1,19 @@
 {
-  "episode_number": 5,
-  "id": "ep005_spinning_cube_wireframe",
-  "title": "I Built an Interactive 3D Wireframe Cube with Sliders in Desmos",
-  "short_title": "3D Cube in Desmos #Shorts",
-  "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/desmos_3d_episode_005_ep005_spinning_cube_wireframe.mp4",
-  "description": "I Built an Interactive 3D Wireframe Cube with Sliders in Desmos\n\nIn this Desmos 3D Masterclass, we explore 3D Wireframe & Mesh Engines using pure multivariable calculus and linear algebra inside the Desmos Graphing Calculator.\n\n\ud83d\udcd0 Mathematical Architecture:\n- Core Formula: V_i \\in \\{-1, 1\\}^3, \\quad E_{ij} = (1 - t)V_i + t V_j \\quad (t \\in [0, 1])\n- Concepts: Polyhedral Vertices, Edge Connectivity Matrices, Homogeneous Coordinates\n- Pedagogical Lesson: A cube consists of 8 vertices and 12 connecting edges. Graphing it in Desmos requires parametric line interpolation between adjacent vertices followed by 3D rotation matrix multiplication.\n\n\ud83d\udc49 Open & Explore Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Desmos #Desmos3D #Calculus #LinearAlgebra #Mathematics #STEM #ComputerGraphics #MathVisualizer",
+  "episode_number": 6,
+  "id": "ep006_enneper_minimal_surface",
+  "title": "The Infinite Saddle: Enneper's Minimal Surface in Desmos",
+  "short_title": "Enneper Surface in Desmos #Shorts",
+  "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/desmos_3d_episode_006_ep006_enneper_minimal_surface.mp4",
+  "description": "The Infinite Saddle: Enneper's Minimal Surface in Desmos\n\nIn this Desmos 3D Masterclass, we explore 3D Wireframe & Mesh Engines using pure multivariable calculus and linear algebra inside the Desmos Graphing Calculator.\n\n\ud83d\udcd0 Mathematical Architecture:\n- Core Formula: x = u - \\frac{u^3}{3} + uv^2, \\quad y = -v - u^2 v + \\frac{v^3}{3}, \\quad z = u^2 - v^2\n- Concepts: Minimal Surfaces, Zero Mean Curvature, Weierstrass-Enneper Parametrization\n- Pedagogical Lesson: Enneper's surface is a self-intersecting minimal surface with mean curvature H = 0 at every point, representing the shape a soap film would take if stretched across its boundary.\n\n\ud83d\udc49 Open & Explore Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Desmos #Desmos3D #Calculus #LinearAlgebra #Mathematics #STEM #ComputerGraphics #MathVisualizer",
   "tags": [
-    "3d cube desmos",
-    "wireframe engine",
-    "computer graphics math",
-    "linear algebra",
+    "differential geometry",
+    "enneper surface",
     "desmos 3d",
-    "stem math"
+    "minimal surfaces",
+    "desmos math",
+    "stem education",
+    "calculus visualizer",
+    "soap films math"
   ],
   "duration": 35.0
 }
