@@ -1,20 +1,20 @@
 {
-  "title": "Infinite Oscillations in Finite Time: y = sin(1/x) \ud83c\udfa7",
-  "short_title": "Topologist's Sine y = sin(1/x) #Shorts",
+  "title": "The Geometry of Chance: Normal Distribution e^(-x\u00b2) \ud83c\udfa7",
+  "short_title": "Normal Distribution e^(-x\u00b2) Sound #Shorts",
   "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/acoustic_math_short.mp4",
   "video_path": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/acoustic_math_short.mp4",
-  "description": "INFINITE OSCILLATIONS - Topologist's Infinite Sine\nConnected but Not Path-Connected\n\nIn calculus, taking the derivative of y = x^x yields y' = x^x(1 + ln(x)). Setting y' = 0 reveals an unexpected local minimum at x = 1/e \u2248 0.368, y \u2248 0.692.\n\nUsing Desmos audio sonification, vertical Y values map directly to audio frequency pitch. As x glides from 0 to 3.2, you can distinctly hear the pitch dip to its lowest point at x = 1/e before rocketing exponentially into high frequencies!\n\n\ud83c\udfa7 Full 10-Equation Masterclass (Watch Here):\nhttps://youtu.be/eUna7yEAdYc\n\nDownload Formula Sheets & Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Shorts #Calculus #Mathematics #APCalculus #Desmos #AcousticMath #Science #STEM #AudioTrace",
+  "description": "THE SOUND OF NATURE: - The Gaussian Bell Curve\nInflection Points at x = \u00b11/\u221a2\n\nIn calculus, taking the derivative of y = x^x yields y' = x^x(1 + ln(x)). Setting y' = 0 reveals an unexpected local minimum at x = 1/e \u2248 0.368, y \u2248 0.692.\n\nUsing Desmos audio sonification, vertical Y values map directly to audio frequency pitch. As x glides from 0 to 3.2, you can distinctly hear the pitch dip to its lowest point at x = 1/e before rocketing exponentially into high frequencies!\n\n\ud83c\udfa7 Full 10-Equation Masterclass (Watch Here):\nhttps://youtu.be/eUna7yEAdYc\n\nDownload Formula Sheets & Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Shorts #Calculus #Mathematics #APCalculus #Desmos #AcousticMath #Science #STEM #AudioTrace",
   "tags": [
-    "topologist sine",
+    "gaussian curve",
+    "normal distribution",
     "math sounds",
-    "desmos sound",
-    "pure math",
+    "statistics",
     "shorts",
-    "math visualizer",
+    "stem",
     "Shorts",
     "Acoustic Math",
     "STEM",
     "Calculus"
   ],
-  "duration": 40.105986
+  "duration": 38.485986
 }
