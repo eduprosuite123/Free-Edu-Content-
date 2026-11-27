@@ -369,5 +369,12 @@
     "platform": "Facebook",
     "type": "Reel",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-27T23:23:26.657985+00:00",
+    "slot_id": "youtube_shorts",
+    "platform": "YouTube",
+    "type": "Shorts",
+    "mode": "live"
   }
 ]
