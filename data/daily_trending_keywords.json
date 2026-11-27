@@ -1,5 +1,5 @@
 {
-  "last_updated_utc": "2026-11-27T19:30:21.815970+00:00",
+  "last_updated_utc": "2026-11-27T19:52:09.891554+00:00",
   "niche_count": 6,
   "products": {
     "electrical": {
@@ -149,10 +149,7 @@
         "programmatic seo webflow",
         "programmatic seo wordpress",
         "programmatic seo with ai",
-        "programmatic seo case study",
-        "sitemap google search console",
-        "sitemap url google search console",
-        "submit a sitemap to google search console"
+        "programmatic seo case study"
       ],
       "top_hook": "Self Service Programmatic"
     }
