@@ -404,5 +404,12 @@
     "platform": "Threads",
     "type": "Night Recap",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-28T13:38:20.626000+00:00",
+    "slot_id": "bluesky_1",
+    "platform": "Bluesky",
+    "type": "Discussion Post",
+    "mode": "live"
   }
 ]
