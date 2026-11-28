@@ -418,5 +418,12 @@
     "platform": "Bluesky",
     "type": "Discussion Post",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-28T14:24:53.929280+00:00",
+    "slot_id": "bluesky_1",
+    "platform": "Bluesky",
+    "type": "Discussion Post",
+    "mode": "live"
   }
 ]
