@@ -397,5 +397,12 @@
     "platform": "Threads",
     "type": "Night Recap",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-28T02:17:37.480023+00:00",
+    "slot_id": "threads_night",
+    "platform": "Threads",
+    "type": "Night Recap",
+    "mode": "live"
   }
 ]
