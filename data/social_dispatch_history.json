@@ -383,5 +383,12 @@
     "platform": "YouTube",
     "type": "Shorts",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-28T00:18:06.115435+00:00",
+    "slot_id": "pinterest_static_2",
+    "platform": "Pinterest",
+    "type": "Static Pin 2:3",
+    "mode": "live"
   }
 ]
