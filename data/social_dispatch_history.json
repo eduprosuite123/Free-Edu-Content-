@@ -446,5 +446,12 @@
     "platform": "Threads",
     "type": "Discussion Question",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-28T19:29:26.764162+00:00",
+    "slot_id": "youtube_long",
+    "platform": "YouTube",
+    "type": "Long Video",
+    "mode": "live"
   }
 ]
