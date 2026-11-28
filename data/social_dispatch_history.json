@@ -390,5 +390,12 @@
     "platform": "Pinterest",
     "type": "Static Pin 2:3",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-28T01:46:48.309497+00:00",
+    "slot_id": "threads_night",
+    "platform": "Threads",
+    "type": "Night Recap",
+    "mode": "live"
   }
 ]

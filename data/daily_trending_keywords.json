@@ -1,5 +1,5 @@
 {
-  "last_updated_utc": "2026-11-28T00:17:37.265872+00:00",
+  "last_updated_utc": "2026-11-28T01:46:17.442844+00:00",
   "niche_count": 6,
   "products": {
     "electrical": {
@@ -79,6 +79,7 @@
         "epa 608 universal practice test",
         "epa certification test answers",
         "epa 608 type 2 practice test",
+        "epa 608 exam practice questions 1-100",
         "hvac vacuum micron gauge",
         "hvac vacuum pump maintenance",
         "hvac vacuum pump oil",
@@ -128,10 +129,7 @@
         "ap stats formula sheet given"
       ],
       "youtube_queries": [
-        "ap stats formula sheet",
-        "stats hypothesis testing (p-value method)",
-        "ap stats hypothesis testing review",
-        "ap stats hypothesis testing"
+        "ap stats formula sheet"
       ],
       "top_hook": "Ap Stats Normalcdf"
     },
