@@ -1,19 +1,20 @@
 {
-  "episode_number": 6,
-  "id": "ep006_enneper_minimal_surface",
-  "title": "The Infinite Saddle: Enneper's Minimal Surface in Desmos",
-  "short_title": "Enneper Surface in Desmos #Shorts",
-  "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/desmos_3d_episode_006_ep006_enneper_minimal_surface.mp4",
-  "description": "The Infinite Saddle: Enneper's Minimal Surface in Desmos\n\nIn this Desmos 3D Masterclass, we explore 3D Wireframe & Mesh Engines using pure multivariable calculus and linear algebra inside the Desmos Graphing Calculator.\n\n\ud83d\udcd0 Mathematical Architecture:\n- Core Formula: x = u - \\frac{u^3}{3} + uv^2, \\quad y = -v - u^2 v + \\frac{v^3}{3}, \\quad z = u^2 - v^2\n- Concepts: Minimal Surfaces, Zero Mean Curvature, Weierstrass-Enneper Parametrization\n- Pedagogical Lesson: Enneper's surface is a self-intersecting minimal surface with mean curvature H = 0 at every point, representing the shape a soap film would take if stretched across its boundary.\n\n\ud83d\udc49 Open & Explore Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Desmos #Desmos3D #Calculus #LinearAlgebra #Mathematics #STEM #ComputerGraphics #MathVisualizer",
+  "episode_number": 7,
+  "id": "ep007_helicoid_vs_catenoid",
+  "title": "The Isometric Morph: Helicoid into Catenoid Animation in Desmos",
+  "short_title": "Helicoid to Catenoid in Desmos #Shorts",
+  "file": "/home/runner/work/Free-Edu-Content-/Free-Edu-Content-/output/desmos_3d_episode_007_ep007_helicoid_vs_catenoid.mp4",
+  "description": "The Isometric Morph: Helicoid into Catenoid Animation in Desmos\n\nIn this Desmos 3D Masterclass, we explore 3D Wireframe & Mesh Engines using pure multivariable calculus and linear algebra inside the Desmos Graphing Calculator.\n\n\ud83d\udcd0 Mathematical Architecture:\n- Core Formula: x = \\cos\\alpha \\sinh v \\sin u + \\sin\\alpha \\cosh v \\cos u, \\quad z = u\\cos\\alpha + v\\sin\\alpha\n- Concepts: Bonnet Family of Minimal Surfaces, Isometric Deformation, Gauss Curvature Invariance\n- Pedagogical Lesson: The catenoid and helicoid are locally isometric minimal surfaces. By varying parameter alpha from 0 to pi/2, the surface seamlessly bends without stretching or compressing any distances on the surface.\n\n\ud83d\udc49 Open & Explore Interactive Desmos Tools:\nhttps://eduprosuite.pro/\n\n#Desmos #Desmos3D #Calculus #LinearAlgebra #Mathematics #STEM #ComputerGraphics #MathVisualizer",
   "tags": [
     "differential geometry",
-    "enneper surface",
-    "desmos 3d",
-    "minimal surfaces",
     "desmos math",
+    "desmos 3d",
     "stem education",
     "calculus visualizer",
-    "soap films math"
+    "helicoid",
+    "catenoid",
+    "isometric transformation",
+    "desmos animation"
   ],
   "duration": 35.0
 }
