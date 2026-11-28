@@ -425,5 +425,12 @@
     "platform": "Bluesky",
     "type": "Discussion Post",
     "mode": "live"
+  },
+  {
+    "timestamp_utc": "2026-11-28T16:20:26.313581+00:00",
+    "slot_id": "fb_link_post",
+    "platform": "Facebook",
+    "type": "Link Post",
+    "mode": "live"
   }
 ]
